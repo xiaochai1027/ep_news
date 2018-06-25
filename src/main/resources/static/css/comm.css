@@ -1,0 +1,180 @@
+@charset "UTF-8";
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+button,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, "Hiragino Sans GB", "microsoft yahei", "微软雅黑", sans-serif;
+  font-size: 12px;
+}
+ul,
+ol,
+dl,
+dt,
+dd,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+/*清除浮动*/
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
+}
+/*浮动*/
+.float_left {
+  float: left;
+}
+.float_right {
+  float: right;
+}
+/*固定宽度*/
+.container {
+  width: 1000px;
+  margin: 0 auto;
+}
+/*头部导航*/
+#head_nav {
+  width: 100%;
+  height: 78px;
+  background: #13131f;
+  margin-bottom: 60px;
+}
+.head {
+  bordre: 1px solid red;
+  position: relative;
+  background: #13131f;
+}
+.head img {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.head span {
+  font-size: 30px;
+  color: #f6f5f2;
+  margin-left: 130px;
+  line-height: 78px;
+  padding-left: 35px;
+  border-left: 3px solid #f6f5f2;
+}
+.user_manage {
+  line-height: 78px;
+  display: inline-block;
+  height: 78px;
+  color: #f6f5f2;
+  font-size: 14px;
+}
+.user_manage a {
+  color: #f6f5f2;
+  margin-right: 10px;
+}
+.user_manage a:hover {
+  color: #ff6600;
+  text-decoration: underline;
+}
+/*左侧导航*/
+#left_nav {
+  border: 2px solid #13131f;
+  width: 150px;
+  display: inline-block;
+  min-height: 240px;
+  text-align: center;
+  padding-top: 40px;
+  font-size: 14px;
+  padding-bottom: 40px;
+}
+#left_nav li {
+  line-height: 40px;
+  width: 100%;
+}
+#left_nav a {
+  color: #13131f;
+  transition: all 0.2s ease;
+}
+#left_nav a:hover {
+  color: #ffd308;
+  transition: all 0.3s ease;
+}
+/*右侧内容*/
+#right_con {
+  width: 780px;
+  min-height: 400px;
+}
+.loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  left: 0;
+  top: 0;
+  opacity: 0.7;
+  background-color: white;
+  z-index: 9999;
+}
+.add_module {
+  border: 2px solid #13131f;
+  margin-bottom: 100px;
+}
+/*btn 按钮*/
+.action_btn {
+  padding: 30px;
+}
+.action_btn a {
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  display: inline-block;
+  border: 1px solid #13131f;
+  color: #13131f;
+  margin: 10px 0 0 15px;
+  transition: all 0.3s ease;
+}
+.action_btn a:hover {
+  background: #13131f;
+  color: #fff;
+}
+.marleft20 {
+  margin-left: 20px;
+}
+.marright20 {
+  margin-right: 20px;
+}
+.martop20 {
+  margin-top: 20px;
+}
+.marbottom20 {
+  margin-bottom: 20px;
+}

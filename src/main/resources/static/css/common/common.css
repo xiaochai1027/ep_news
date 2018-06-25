@@ -1,0 +1,160 @@
+
+
+.common_hd {
+    width: 95%;
+    margin: 10px auto 20px;
+    height: 30px;
+}
+
+.common_tab {
+    width: 80px;
+    height: 25px;
+    line-height: 27px;
+    border: 1px solid #13131f;
+    border-radius: 10px;
+    text-align: center;
+    color: #13131f;
+    transition: all 0.2s ease;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+
+.common_table{
+    width: 95%;
+    margin: 0 auto;
+    border: 1px solid #13131f;
+    border-bottom: none;
+    border-collapse: collapse;
+}
+.common_table tr{
+    border-bottom:1px solid #13131f;
+}
+.common_table td{
+    text-align: center;
+    line-height:30px;
+}
+
+td.width1 {
+    text-align: center;
+    width:10%;
+}
+td.width2 {
+    width:20%;
+}
+td.width3 {
+    width:50%;
+}
+td.width4 {
+    width:15%;
+}
+
+.delete {
+    color: red;
+}
+
+/*  hover  */
+.common_option_list tr td a {
+    color: #13131f;
+}
+.common_option_list tr td a:hover {
+    text-decoration: underline;
+    color: #ff6600;
+}
+
+.pages_box {
+    width: 95%;
+    margin: 10px auto;
+}
+
+.common_btn, .common_btn_danger, .common_btn_a{
+    width: 80px;
+    height: 25px;
+    border: 1px solid #13131f;
+    border-radius: 10px;
+    text-align: center;
+    color: #13131f;
+    transition: all 0.2s ease;
+    margin-right: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.common_btn_a{
+    line-height: 27px;
+}
+
+.common_btn{
+    margin-left: 15px;
+}
+
+
+.common_btn:hover, .common_btn_danger:hover, .common_btn_a:hover{
+    background: #13131f;
+    color: #eeeeee;
+    transition: all 0.3s ease;
+}
+
+.common_btn_danger {
+    border: 1px solid red;
+    color: red;
+}
+
+/* 右侧带框的盒子 2像素黑框 */
+.right_box {
+    border:2px solid #13131f;
+    box-sizing: border-box;
+    padding: 20px;
+    float: right;
+    width: 829px;
+}
+
+.common_list {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 20px 0;
+}
+.common_item {
+    width: 90%;
+    margin-bottom: 10px;
+    height: 30px;
+    line-height: 30px;
+    box-sizing: border-box;
+    display: block;
+}
+.common_item_ul {
+    width: 90%;
+    margin-bottom: 10px;
+    line-height: 30px;
+    box-sizing: border-box;
+    display: block;
+    list-style:none
+}
+
+.common_item_ul li{
+    width: 90%;
+    margin-bottom: 10px;
+    line-height: 30px;
+    box-sizing: border-box;
+    display: block;
+    float:left;
+}
+
+.common_item span {
+    display: inline-block;
+    width: 80px;
+    margin-right: 10px;
+}
+
+
+.common_item input {
+    width: 300px;
+    height: 20px;
+    box-sizing: border-box;
+}
+
+
+.error{
+    color:red;
+}

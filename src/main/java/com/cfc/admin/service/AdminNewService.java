@@ -19,16 +19,23 @@ public class AdminNewService {
        return DBUtil.queryForListMap("select * from `new` order by ctime desc limit ?,?", pageModel.getStart(), pageModel.getCount());
     }
 
-    public static void createNew(Map<String, Object> params, Integer id) {
+    public static Integer count(){
+        return DBUtil.queryForInt("select count(*) from `new`");
+    }
+
+
+    public static String createNew(Map<String, Object> params, Integer id) {
         if (id == null) {
             BaseDao.insert2(params, Tables.NEW);
         } else {
             BaseDao.update2(params, Tables.NEW, " id = ? ", id);
         }
+        return "success";
     }
 
-    public static void delete(Integer id) {
+    public static String delete(Integer id) {
         BaseDao.delete(Tables.NEW, " id = ? ", id);
+        return "success";
     }
 
 

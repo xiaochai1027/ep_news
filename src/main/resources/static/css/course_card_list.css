@@ -1,0 +1,100 @@
+.course_add_search {
+  padding: 20px;
+}
+.course_add_search .add_btn {
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  color: #333;
+  display: inline-block;
+}
+.course_list {
+  width: 100%;
+  border: 1px solid #333;
+  border-top: none;
+  border-collapse: collapse;
+}
+.course_list tr {
+  width: 100%;
+}
+.course_list td {
+  border-top: 1px solid #333;
+  text-align: center;
+  padding: 10px 0;
+}
+.course_list td a {
+  color: #333;
+}
+.pages_box_hd {
+  text-align: center;
+}
+.pages_box_hd .pages_box {
+  display: inline-block;
+}
+.btn2 {
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  display: inline-block;
+  border: 1px solid #13131f;
+  color: #13131f;
+  margin: 10px 0 0 15px;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+.btn2:hover {
+  background: #13131f;
+  color: #fff;
+}
+.error {
+  color: red;
+}
+.add_file_box {
+  border: 1px solid #13131f;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  padding: 10px 10px 40px 10px;
+}
+.add_file_box .line {
+  margin-top: 20px;
+  font-size: 14px;
+}
+.add_file_box .line label {
+  display: inline-block;
+  width: 70px;
+}
+.add_file_box .line .focus_file {
+  padding: 3px 5px;
+  border-radius: 8px;
+  border: 1px solid #13131f;
+  color: #13131f;
+  margin-left: 10px;
+}
+.add_file_box .line .focus_file:hover {
+  color: #fff;
+  background: #13131f;
+}
+.add_file_box .add_btn {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 5px 10px;
+  border: 2px solid #13131f;
+  border-radius: 8px;
+  color: #13131f;
+}
+.add_file_box .add_btn:hover {
+  background: #13131f;
+  color: #fff;
+}
+.red td,
+.red td a {
+  color: red;
+}
+.address_input {
+  width: 200px;
+}

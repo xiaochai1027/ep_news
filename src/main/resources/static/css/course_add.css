@@ -1,0 +1,257 @@
+.course_add_title {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  padding-left: 20px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #13131f;
+}
+/*添加课程详情*/
+.course_add_details {
+  width: 100%;
+  color: #13131f;
+  box-sizing: border-box;
+}
+.sell_intro {
+  padding-left: 20px;
+  border-bottom: 1px solid #13131f;
+}
+.sell_intro_title,
+.course_intro_title {
+  font-weight: bold;
+  line-height: 50px;
+  height: 50px;
+  width: 100%;
+}
+.sell_intro_item {
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 90px;
+}
+.sell_intro_sub {
+  display: inline-block;
+  width: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.sell_intro div {
+  display: inline-block;
+}
+.tag_type {
+  vertical-align: super;
+}
+/*表单元素*/
+.sell_intro select {
+  width: 100px;
+  outline: none;
+}
+input {
+  height: 20px;
+  padding: 3px 0;
+  outline: none;
+  width: 100px;
+}
+.sell_intro input.class_qq_group {
+  width: 85%;
+}
+.sell_intro input.name {
+  width: 300px;
+}
+.sell_intro textarea.intro {
+  width: 300px;
+  height: 60px;
+  outline: none;
+  resize: none;
+}
+.sell_intro a.focus_img,
+.sell_intro a.square_chart {
+  width: 100px;
+  height: 25px;
+  border: 1px solid #9c9c9c;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 27px;
+  display: inline-block;
+  margin: 0 5px;
+  color: #13131f;
+}
+.sell_intro .module_title {
+  width: 85px;
+  text-align: center;
+}
+.add_express_btn {
+  width: 70px;
+  height: 26px;
+  line-height: 26px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #13131f;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #13131f;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.add_express_btn:hover {
+  background-color: #fff;
+  color: #131313;
+}
+/*增发快递*/
+.add_express_list {
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 15px;
+  margin-left: -70px;
+}
+.add_express_li {
+  width: 100%;
+  height: 30px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  color: #13131f;
+}
+.express_order {
+  margin-right: 10px;
+  width: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.express_name {
+  width: 180px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  margin: 0 10px;
+}
+.cut_off_date {
+  width: 44px;
+  vertical-align: middle;
+}
+.express_cut_off_date {
+  width: 150px;
+  height: 20px;
+  line-height: 20px;
+  margin-left: 10px;
+}
+.delete_express {
+  color: #13131f;
+  margin-left: 10px;
+  cursor: pointer;
+  border: 1px solid #13131f;
+  border-radius: 4px;
+  padding: 3px 5px;
+}
+.delete_express.hover:hover {
+  color: #fff;
+  background-color: #13131f;
+}
+.default {
+  color: #ccc;
+}
+.default_input {
+  border: 1px solid #ccc;
+  color: #ccc;
+}
+/*课程介绍*/
+.course_intro {
+  width: 100%;
+  padding-left: 20px;
+}
+.course_intro .course_detail {
+  width: 730px;
+  height: 400px;
+  resize: none;
+}
+/*课次组*/
+.order_index {
+  display: inline-block;
+  margin-right: 5px;
+  width: 25px;
+  text-align: center;
+}
+.add_groups,
+.lesson_groups_btn {
+  width: 50px;
+  height: 25px;
+  border: 1px solid #9c9c9c;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 27px;
+  display: inline-block;
+  margin: 0 5px;
+  color: #13131f;
+  cursor: pointer;
+}
+.add_groups:hover,
+.lesson_groups_btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+input.add_groups_title {
+  width: 200px;
+}
+.add_reserve_notify {
+  width: 380px;
+  height: 60px;
+  outline: none;
+  resize: none;
+}
+.lesson_groups {
+  margin-top: 10px;
+}
+.lesson_groups li {
+  padding-left: 0;
+  margin-bottom: 10px;
+}
+.lesson_groups li input {
+  text-align: center;
+}
+.lesson_groups li input.lg_index {
+  width: 25px;
+  margin-right: 10px;
+}
+/*延迟发货*/
+.delay_time_hd {
+  position: relative;
+  display: inline-block;
+}
+.delay_time_shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.tags_intro_hd {
+  display: none;
+  padding-bottom: 40px;
+}
+.tags_item_hd {
+  display: inline-block;
+}
+.tags_item_hd .tags_type {
+  vertical-align: super;
+}
+.tags_sure_btn {
+  width: 60px;
+  line-height: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  border: 1px solid #333;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  display: block !important;
+  transition: all .3s ease;
+  margin-top: 20px;
+  float: right;
+  margin-right: 30px;
+}
+.tags_sure_btn:hover {
+  background: #333;
+  color: #fff;
+}
