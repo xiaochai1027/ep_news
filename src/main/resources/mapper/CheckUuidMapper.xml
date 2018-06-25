@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cfc.dao.mapper.CheckUuidMapper">
+  <insert id="insertOrUpdateCheckUuid">
+    INSERT INTO check_uuid
+    (id, num) VALUES (
+    #{id},
+    1
+    ) on duplicate key update
+    num = num + 1
+  </insert>
+</mapper>
