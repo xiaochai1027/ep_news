@@ -14,7 +14,7 @@ import java.util.Map;
  * @auther fangchen.chai ON 2017/11/20
  */
 @Controller
-@RequestMapping("hello")
+@RequestMapping("/hello")
 public class HelloController {
 
     @GetMapping("/thymeleaf")
@@ -27,6 +27,12 @@ public class HelloController {
     public String helloJsp(Map<String,String> model, @RequestParam(required = false, defaultValue = "jsp") String name) {
         model.put("name", name);
         return "indexj";
+    }
+
+    @GetMapping("/ok")
+
+    public Object hello(){
+        return "success";
     }
 
 
