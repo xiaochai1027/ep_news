@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课程列表</title>
+    <link rel="stylesheet" href="/static/css/comm.css"/>
+    <link rel="stylesheet" href="/static/css/kkpager.css"/>
+    <link rel="stylesheet" href="/static/css/course_list.css"/>
+
+    <script src="/static/js/common/jquery-2.1.1.min.js"></script>
+    <script src="/static/js/common/jquery.form.js"></script>
+    <script src="/static/js/common/jquery.datetimepicker.js"></script>
+    <script src="/static/js/common/jquery.cookie.js"></script>
+    <script src="/static/js/common/q.js"></script>
+    <script src="/static/js/common/ajax.js"></script>
+    <script src="/static/js/common/kkpager.js"></script>
+    <script src="/static/js/common/head_nav.js"></script>
+    <script src="/static/js/course/courselist.js"></script>
+</head>
+<body>
+    <!--顶部导航-->
+    <#include "/fragment/nav.ftl"/>
+    <!--主体内容-->
+    <div class="clearfix container">
+        <!--左侧导航-->
+        <#include "/fragment/nav_left.ftl"/>
+        <!--右侧内容-->
+
+        <div id="right_con" class="float_right">
+            <div class="wsType_hd">
+                <a href='/course/list?wsType=2' id="tab_cet" class="wsType_tab">四六级</a>
+                <a href='/course/list?wsType=1' id="tab_kaoyan" class="wsType_tab">考研</a>
+                <a href='/course/list?wsType=3' id="tab_ielts" class="wsType_tab">雅思</a>
+                <a href='/course/list?wsType=4' id="tab_toefl" class="wsType_tab">托福</a>
+                <a href='/course/list?wsType=5' id="tab_tem" class="wsType_tab">专四专八</a>
+                <a href='/course/list?wsType=6' id="tab_skills" class="wsType_tab">实用英语</a>
+                <a href='/course/list?wsType=7' id="tab_gongkao" class="wsType_tab">公考</a>
+            </div>
+            <!--按钮-->
+            <div class="course_add_search">
+                <a href="/course/detail" id="add" class="float_left">添加课程</a>
+                <a href="/export/roomId" class="float_left roomid_btn">导出roomid</a>
+                <a href="/course/group/list" class="float_left roomid_btn">管理课程组</a>
+                <a href="/export/order" class="float_left roomid_btn">导出订单信息</a>
+                <form class="search_course" >
+                    <input type="search" placeholder="输入课程ID、类型、名称查询" id="key" name="key" class="search">
+                    <input type="submit" value="搜索" id="j-search" class="btn search_btn">
+                </form>
+            </div>
+
+            <!--课程-->
+            <table class="course_operate_list">
+                <thead>
+                <tr class="title">
+                    <td class="id">课程ID</td>
+                    <td class="type">类型</td>
+                    <td class="name">课程名称</td>
+                    <td class="price">价格</td>
+                    <td class="state">状态</td>
+                    <td class="weight">权重</td>
+                    <td class="order">订单/明细</td>
+                    <td class="state">售卖状态</td>
+                    <td class="operate">操作</td>
+                </tr>
+                </thead>
+                <tbody class="j-course-con" id="j-course-con">
+
+                </tbody>
+            </table>
+            <div class="hint_box">你搜索的内容，不存在~</div>
+            <nav class="page_con pages_box">
+                <div>
+                    <div id="kkpager"></div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</body>
+</html>
