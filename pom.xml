@@ -133,7 +133,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <finalName>sproject</finalName>
+                    <finalName>ep_news</finalName>
 
                 </configuration>
             </plugin>

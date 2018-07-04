@@ -1,4 +1,9 @@
 spring:
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
+  resources:
+    static-locations: classpath:/static/,classpath:/resources
 #  datasource:
 #    url: jdbc:mysql://39.106.107.127/sproject?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=true
 #    username: admin

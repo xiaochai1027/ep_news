@@ -21,7 +21,7 @@ public class AdminNewPageController extends BasePageController {
     @RequestMapping("/list")
     public Object list() {
         genReturnMap(new HashMap<>());
-        return "/new/list";
+        return "/admin/new/list";
     }
 
 
