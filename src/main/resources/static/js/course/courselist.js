@@ -2,13 +2,13 @@ function CourseList() {
 
 }
 
-CourseList.operate = function(method, courseId) {
+CourseList.operate = function(method, id) {
     if (!confirm('确定' + method + '?')) {
         return;
     }
     ajax(
         {
-            url : '/api/course/' + method + '?courseId=' + courseId
+            url : '/api/admin/new/' + method + '?id=' + id
         }
     ).done(function(data) {
         window.location.reload();
@@ -56,7 +56,7 @@ function getCourseData(pageNum, key){
         key += '&wsType=' + wsType;
     }
 
-    var url = '/api/course/list?pageSize=20&pageNum=' + pageNum + key;
+    var url = '/api/admin/new/list?pageSize=20&pageNum=' + pageNum + key;
 
     ajax({
         url : url

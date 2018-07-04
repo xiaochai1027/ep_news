@@ -7,6 +7,7 @@ import com.cfc.util.model.PageModel;
 import com.cfc.util.spring.SpringMVCUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Map;
 
@@ -19,6 +20,7 @@ import java.util.Map;
 public class AdminNewApiController extends BaseApiController {
 
     @RequestMapping("/list")
+    @ResponseBody
     public Object list(PageModel pageModel) {
         return genReturnJSON(AdminNewService.list(pageModel), pageModel.getPageNum(), AdminNewService.count());
     }

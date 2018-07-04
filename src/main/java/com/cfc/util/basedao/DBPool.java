@@ -32,7 +32,7 @@ public class DBPool {
 			dataSource.setUser(username);
 			dataSource.setPassword(password);
 			dataSource.setJdbcUrl(jdbcUrl);
-			dataSource.setDriverClass("com.mysql.jdbc.Driver");
+			dataSource.setDriverClass("com.mysql.cj.jdbc.Driver");
 			// 设置初始连接池的大小！
 			dataSource.setInitialPoolSize(1);
 			// 设置连接池的最小值！ 
