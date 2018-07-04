@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>˚
+    <meta charset="UTF-8">
+    <title>添加课程</title>
+    <link rel="stylesheet" href="/static/css/comm.css"/>
+    <link rel="stylesheet" href="/static/css/course_add.css"/>
+    <link href="/static/css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+
+    <script type="text/javascript" charset="utf-8" src="/static/ue/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/ue/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/ue/lang/zh-cn/zh-cn.js"></script>
+    <script src="/static/js/common/jquery-2.1.1.min.js"></script>
+    <script src="/static/js/common/jquery.form.js"></script>
+    <script src="/static/js/common/jquery.datetimepicker.js"></script>
+    <script src="/static/js/common/jquery.cookie.js"></script>
+    <script src="/static/js/common/util.js"></script>
+    <script src="/static/js/common/q.js"></script>
+    <script src="/static/js/common/ajax.js"></script>
+    <script src="/static/js/common/head_nav.js"></script>
+    <script src="/static/js/common/loading.js"></script>
+    <script src="/static/js/course/coursedetail.js"></script>
+</head>
+<body>
+<!--顶部导航-->
+<#include "/fragment/nav.ftl"/>
+
+<!--主体内容-->
+<div class="clearfix container">
+    <!--左侧导航-->
+    <#include "/fragment/nav_left.ftl"/>
+
+    <!--右侧内容-->
+    <div id="right_con" class="add_module float_right clearfix">
+        <div class="course_add_title">添加课程</div>
+        <form id="form" action="/api/course/add" class="course_add_details float_right" method="post">
+            <ul class="sell_intro">
+                <input type="hidden" name="id" value="${courseId}"/>
+                <div class="sell_intro_title"><h2>基础信息</h2></div>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">课程类型</span>
+                    <select name="type">
+                        <option <#if type==1>selected="selected"</#if> value="1">系统课</option>
+                        <option <#if type==2>selected="selected"</#if> value="2">公开课</option>
+                        <option <#if type==3>selected="selected"</#if> value="3">大讲堂</option>
+                    </select>
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">考试类型</span>
+                    <select name="wsType" id="j-type">
+                        <option <#if wsType==1>selected="selected"</#if> value="1">考研</option>
+                        <option <#if wsType==2>selected="selected"</#if> value="2">四六级</option>
+                        <option <#if wsType==3>selected="selected"</#if> value="3">雅思</option>
+                        <option <#if wsType==4>selected="selected"</#if> value="4">托福</option>
+                        <option <#if wsType==5>selected="selected"</#if> value="5">专四专八</option>
+                        <option <#if wsType==6>selected="selected"</#if> value="6">实用英语</option>
+                        <option <#if wsType==7>selected="selected"</#if> value="7">公考</option>
+                    </select>
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">考试标签</span>
+                    <b class="tag_type">CET4</b>
+                    <input type="checkbox" name="tag_CET4" <#if tag_CET4 == 1>checked="checked"</#if>
+                    class="j-tag-checkbox">
+                    <b class="tag_type">CET6</b>
+                    <input type="checkbox" name="tag_CET6" <#if tag_CET6 == 1>checked="checked"</#if>
+                    class="j-tag-checkbox">
+                    <b class="tag_type">考研</b>
+                    <input type="checkbox" name="tag_KAOYAN" <#if tag_KAOYAN == 1>checked="checked"</#if>
+                    class="j-tag-checkbox">
+                    <b class="tag_type">雅思</b>
+                    <input type="checkbox" name="tag_IELTS" <#if tag_IELTS == 1>checked="checked"</#if>
+                    class="j-tag-checkbox"><br>
+                    <b class="tag_type">托福</b>
+                    <input type="checkbox" name="tag_TOEFL" <#if tag_TOEFL == 1>checked="checked"</#if>
+                    class="j-tag-checkbox">
+                    <b class="tag_type">专四</b>
+                    <input type="checkbox" name="tag_TEM4" <#if tag_TEM4 == 1>checked="checked"</#if>
+                    class="j-tag-checkbox">
+                    <b class="tag_type">专八</b>
+                    <input type="checkbox" name="tag_TEM8" <#if tag_TEM8 == 1>checked="checked"</#if>
+                    class="j-tag-checkbox">
+                    <b class="tag_type">实用英语</b>
+                    <input type="checkbox" name="tag_SKILLS" <#if tag_SKILLS == 1>checked="checked"</#if>
+                    class="j-tag-checkbox"><br>
+                    <b class="tag_type">公考</b>
+                    <input type="checkbox" name="tag_GONGKAO" <#if tag_GONGKAO == 1>checked="checked"</#if>
+                    class="j-tag-checkbox">
+                    <b class="tag_type">其他</b>
+                    <input type="checkbox" name="tag_OTHER" <#if tag_OTHER == 1>checked="checked"</#if>
+                    class="j-tag-checkbox">
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">课程名称</span>
+                    <div><input type="text" name="title" class="name" value="${title}" maxlength="18">18字以内</div>
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">课程简介</span>
+                    <div>
+                        <textarea class="intro" name="intro" maxlength="80">${intro}</textarea>80字以内
+                    </div>
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">大号图片</span>
+                    <div>
+                        <input style="width:500px;" id="picLarge" type="text" name="picLarge" value="${picLarge}">
+                        <a onclick="$('#upload_picLarge').click()" href="javascript:;" class="focus_img"
+                           value="${picLarge}">选择图片</a><br \>1 : 1.693(248*420)
+                    </div>
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">中号图片</span>
+                    <div>
+                        <input id="pic" style="width:500px;" type="text" name="pic" value="${pic}">
+                        <a onclick="$('#upload_pic').click()" href="javascript:;" class="square_chart" value="${pic}">选择图片</a><br \>1.4 : 1(210*150)
+                    </div>
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">小号图片</span>
+                    <div>
+                        <input id="picSquare" style="width:500px;" type="text" name="picSquare" value="${picSquare}">
+                        <a onclick="$('#upload_picSquare').click()" href="javascript:;" class="square_chart"
+                           value="${picSquare}">选择图片</a><br \>1 : 1(210*210)
+
+                    </div>
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">开售时间</span>
+                    <div>
+                        <input id="sellStart" type="text" name="sellStart"
+                               value="${sellStart?number?number_to_datetime}">
+                    </div>
+                    <div class="module_title">停售时间</div>
+                    <div>
+                        <input id="sellEnd" type="text" name="sellEnd"
+                               value="${sellEnd?number?number_to_datetime}">
+                    </div>
+                    <div class="module_title">售卖价格(元)</div>
+                    <div><input name="price" type="text" maxlength="18" class="price" value="${price / 100}"
+                                id="j-price">18字以内
+                    </div>
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">限售人数</span>
+                    <div><input type="text" class="people_num" name="quota" value="${quota}"></div>
+                    <div>
+                        <div class="module_title">权重</div>
+                        <input type="text" name="weight" value="${weight}">
+                    </div>
+                    <div>
+                        <div class="module_title">课时</div>
+                        <input type="text" name="period" value="${period}">
+                    </div>
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">听课须知</span>
+                    <div>
+                        <input id="picRules" style="width:500px;" type="text" name="picRules" value="${picRules}">
+                        <a onclick="$('#upload_picRules').click()" href="javascript:;" class="square_chart" value="${picRules}">选择图片</a><br \>
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="sell_intro tags_intro_hd" id="j-tags-intro-hd">
+                <div class="sell_intro_title"><h2>课程Tag</h2></div>
+                <li class="sell_intro_item tags_list" id="j-tags-list">
+                    <span class="sell_intro_sub">课程Tag</span>
+                </li>
+            </ul>
+
+            <ul class="sell_intro">
+                <div class="sell_intro_title"><h2>收货信息</h2></div>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">需要收货地址</span>
+                    <input type="checkbox" name="needAddress" <#if needAddress == 1>checked="checked"</#if>
+                    id="j-needAddress">
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">预计发货时间</span>
+                    <input type="text" name="expectDate" value="${expectDate}" maxlength="12">
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">延迟发货</span>
+                    <input type="checkbox" name="needDelay" <#if needDelay == 1>checked="checked"</#if> id="j-needDelay">
+                </li>
+
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">延迟发货时间</span>
+                    <div class="delay_time_hd">
+                        <#if !delayTime?? || delayTime == 0>
+                            <#assign delayTime = "">
+                        </#if>
+                        <div class="delay_time_shade" id="j-delay-time-shade" <#if needDelay == 1>style="display:none;"</#if>></div>
+                        <input id="j-delayTime" type="text" name="delayTime" value="${delayTime?number?number_to_date}" class="delay_time">
+                    </div>
+                </li>
+
+                <li class="sell_intro_item express_intro" id="j-express-intro">
+                    <span class="sell_intro_sub">增发快递</span>
+                    <div class="add_express_btn" id="j-add-express">添加</div>
+                    <ul class="add_express_list" id="j-express-list">
+                    </ul>
+                </li>
+            </ul>
+
+            <!--IAP相关-->
+            <ul class="sell_intro">
+                <div class="sell_intro_title"><h2>IAP相关</h2></div>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">虚拟币支付</span>
+                    <input type="checkbox" name="needRemain" id="j-needRemain" <#if needRemain == 1>checked="checked"</#if>>
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">IAP支付</span>
+                    <input type="checkbox" name="needIAP" id="j-needIAP" <#if needIAP == 1>checked="checked"</#if>>
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">IAP价格</span>
+                    <select name="IAPPrice">
+                        <option <#if IAPPrice / 100 ==1>selected="selected"</#if> value="1">¥1.00元</option>
+                        <option <#if IAPPrice / 100 ==6>selected="selected"</#if> value="6">¥6.00元</option>
+                        <option <#if IAPPrice / 100 ==12>selected="selected"</#if> value="12">¥12.00元</option>
+                        <option <#if IAPPrice / 100 ==25>selected="selected"</#if> value="25">¥25.00元</option>
+                        <option <#if IAPPrice / 100 ==30>selected="selected"</#if> value="30">¥30.00元</option>
+                        <option <#if IAPPrice / 100 ==50>selected="selected"</#if> value="50">¥50.00元</option>
+                        <option <#if IAPPrice / 100 ==68>selected="selected"</#if> value="68">¥68.00元</option>
+                        <option <#if IAPPrice / 100 ==128>selected="selected"</#if> value="128">¥128.00元</option>
+                        <option <#if IAPPrice / 100 ==268>selected="selected"</#if> value="268">¥268.00元</option>
+                    </select>
+                </li>
+            </ul>
+
+            <!--iOS-APP相关配置-->
+            <ul class="sell_intro" id="j-iapcon-hd">
+                <div class="sell_intro_title"><h2>iOS-APP相关配置</h2></div>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">iOS课程标题</span>
+                    <div><input type="text" name="iOSCourseName" id="j-ios-coursename" class="name" value="${iOSCourseName}" maxlength="18">18字以内</div>
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">iOS课程描述</span>
+                    <script id="iOSCourseDesc" type="text/plain" name="iOSCourseDesc" style="width:640px;height:300px;"></script>
+                    <script type="text/javascript">
+                        var ue_ios = UE.getEditor('iOSCourseDesc');
+                        ue_ios.ready(function () {
+                            ue_ios.setContent('${iOSCourseDesc}');
+                        });
+                    </script>
+                </li>
+            </ul>
+
+            <ul class="sell_intro">
+                <div class="sell_intro_title"><h2>可选信息</h2></div>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">需要预售</span>
+                    <input type="checkbox" name="reserveType" <#if reserveType == 1>checked="checked"</#if>>
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">允许用户退课</span>
+                    <input type="checkbox" name="refundable" <#if refundable == 1>checked="checked"</#if> id="j-refundable">
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">预约通知</span>
+                    <#--<input type="text" class="add_reserve_notify" name="reserveNotify" value="${reserveNotify}">-->
+                    <textarea class="add_reserve_notify" name="reserveNotify">${reserveNotify}</textarea>
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">填写学生证</span>
+                    <input type="checkbox" name="needCard" <#if needCard == 1>checked="checked"</#if> id="j-card-checkbox">
+                    <div class="module_title">上次考试批次</div>
+                    <input type="text" name="preExamBatch" value="${preExamBatch}" class="j-exam-batch"
+                    <#if needCard?? && needCard == 1><#else>disabled</#if>>
+                    <div class="module_title">本次考试批次</div>
+                    <input type="text" name="curExamBatch" value="${curExamBatch}" class="j-exam-batch"
+                    <#if needCard?? && needCard == 1><#else>disabled</#if>>
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">班级qq群</span>
+                    <input type="text" name="qqGroup" value="${qqGroup}" class="class_qq_group">
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">预售qq群</span>
+                    <input type="text" name="reserveQQGroup" value="${reserveQQGroup}">
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">考试IDs</span>
+                    <input type="text" name="examIds" value="${examIds}">
+                    <div>
+                        <div class="module_title">往期评论课程</div>
+                        <#if !precourseId?? || precourseId == 0>
+                            <#assign precourseId = "">
+                        </#if>
+                        <input type="text" name="precourseId" value="${precourseId}">
+                    </div>
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">到期日期</span>
+                    <div>
+                        <#if !expirationdate?? || expirationdate == 0>
+                            <#assign expirationdate = "">
+                        </#if>
+                        <input id="expirationdate" type="text" name="expirationdate"
+                               value="${expirationdate?number?number_to_date}">
+                    </div>
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">试听链接</span>
+                    <input type="text" class="class_qq_group" name="auditionUrl" value="${auditionUrl}">
+                </li>
+
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">售卖备选    按钮文字</span>
+                    <input type="text" class="class_qq_group" name="replicaName" value="${replicaName}" maxlength="6">不超过六个字
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">售卖备选    按钮链接</span>
+                    <input type="text" class="class_qq_group" name="replicaUrl" value="${replicaUrl}">
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">售卖备选    按钮URI</span>
+                    <input type="text" class="class_qq_group" name="replicaURI" value="${replicaURI}">
+                </li>
+                <li class="sell_intro_item">
+                    <div>
+                        <span class="sell_intro_sub">课次组</span>
+                        <input type="text" class="order_index" value="">
+                        <input type="text" class="add_groups_title" value="" maxlength=15>
+                        <div class="add_groups" id="add_groups">添加</div>
+
+                        <ul class="lesson_groups" id="lesson_groups">
+                            <#assign i=0>
+                                <#list lessonGroups as groups>
+                                    <#assign i = i + 1>
+                                        <li>
+                                            <input type="text" name="lg_index_${i}" value="${groups.index}" class="lg_index">
+                                            <input type="text" name="lg_title_${i}" value="${groups.title}" maxlength=15
+                                                   class="lg_title">
+                                            <input type="hidden" name="lg_id_${i}" value="${groups.id}" class="lg_id">
+                                            <input type="hidden" name="lg_del_${i}" value="0" class="lg_del">
+                                            <div class="save_groups lesson_groups_btn">修改</div>
+                                            <div class="delete_groups lesson_groups_btn">删除</div>
+                                        </li>
+                                </#list>
+                        </ul>
+                    </div>
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">可否使用优惠券</span>
+                    <input type="checkbox" name="couponFlag" <#if couponFlag == 1>checked="checked"</#if> id="j-coupon-checkbox">
+                </li>
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">免注册看课</span>
+                    <input type="checkbox" name="regFreeFlag" <#if regFreeFlag == 1>checked="checked"</#if> id="j-regfree-checkbox">
+                    <div class="module_title">注册赠课ID</div>
+                    <input type="text" name="regFreeCourseId" value="${regFreeCourseId}" id="j-regfree-course" >
+                </li>
+
+                <li class="sell_intro_item">
+                    <span class="sell_intro_sub">跳转到vip url</span>
+                    <input type="text" class="class_qq_group" name="vipUrl" value="${vipUrl}">
+                </li>
+            </ul>
+
+            <ul class="course_intro">
+                <div class="course_intro_title">课程介绍</div>
+                <script id="container" type="text/plain" style="width:740px;height:300px;"></script>
+                <script type="text/javascript">
+                    var ue = UE.getEditor('container');
+                    ue.ready(function () {
+                        ue.setContent('${content}');
+                    });
+                </script>
+            </ul>
+
+            <div class="action_btn float_right">
+                <a href="javascript:;" id="save">保存</a>
+                <a id="cancel" href="javascript:;">取消</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+</div>
+
+<form style="display:none" id="form_thumb" action="/storage/upload" enctype="multipart/form-data">
+    <input id="upload_pic" type="file" name="file"/>
+    <input id="upload_picLarge" type="file" name="file"/>
+    <input id="upload_picSquare" type="file" name="file"/>
+    <input id="upload_picRules" type="file" name="file"/>
+</form>
+
+<input type="hidden" id="needAddress" value="${needAddress}">
+<input type="hidden" id="courseId" value="${courseId}">
+<input type="hidden" id="j-wsType" value="${wsType}">
+
+</body>
+</html>
