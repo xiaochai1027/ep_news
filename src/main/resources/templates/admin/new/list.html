@@ -45,21 +45,9 @@
         <div th:include="fragment/nav_left"></div>
 
         <div id="right_con" class="float_right">
-            <div class="wsType_hd">
-                <a href='/course/list?wsType=2' id="tab_cet" class="wsType_tab">四六级</a>
-                <a href='/course/list?wsType=1' id="tab_kaoyan" class="wsType_tab">考研</a>
-                <a href='/course/list?wsType=3' id="tab_ielts" class="wsType_tab">雅思</a>
-                <a href='/course/list?wsType=4' id="tab_toefl" class="wsType_tab">托福</a>
-                <a href='/course/list?wsType=5' id="tab_tem" class="wsType_tab">专四专八</a>
-                <a href='/course/list?wsType=6' id="tab_skills" class="wsType_tab">实用英语</a>
-                <a href='/course/list?wsType=7' id="tab_gongkao" class="wsType_tab">公考</a>
-            </div>
             <!--按钮-->
             <div class="course_add_search">
                 <a href="/course/detail" id="add" class="float_left">添加课程</a>
-                <a href="/export/roomId" class="float_left roomid_btn">导出roomid</a>
-                <a href="/course/group/list" class="float_left roomid_btn">管理课程组</a>
-                <a href="/export/order" class="float_left roomid_btn">导出订单信息</a>
                 <form class="search_course" >
                     <input type="search" placeholder="输入课程ID、类型、名称查询" id="key" name="key" class="search">
                     <input type="submit" value="搜索" id="j-search" class="btn search_btn">
@@ -73,11 +61,10 @@
                     <td class="id">课程ID</td>
                     <td class="type">类型</td>
                     <td class="name">课程名称</td>
-                    <td class="price">价格</td>
-                    <td class="state">状态</td>
+                    <td class="headPic">价格</td>
+                    <td class="index">状态</td>
                     <td class="weight">权重</td>
-                    <td class="order">订单/明细</td>
-                    <td class="state">售卖状态</td>
+                    <td class="ctime">订单/明细</td>
                     <td class="operate">操作</td>
                 </tr>
                 </thead>

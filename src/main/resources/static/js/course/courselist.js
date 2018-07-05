@@ -84,53 +84,61 @@ function getCourseData(pageNum, key){
             } else{
                 isReleased = '<div class="delete">已删除</div>';
             }
-
+            //1荣誉榜 2热门资讯 3个人专栏 4合作专栏
             if (item.type == 1){
-                courseType = '系统课';
+                courseType = '荣誉榜';
             } else if (item.type == 2) {
-                courseType = '公开课';
-            }else {
-                courseType = '大讲堂';
+                courseType = '热门资讯';
+            } else if  (item.type == 3){
+                courseType = '个人专栏';
+            } else if  (item.type == 4){
+                courseType = '合作专栏';
             }
 
-            var stateHtml = '';
+            // var stateHtml = '';
+            //
+            // if (data.stime < item.sellStart){
+            //     //未开售
+            //     stateHtml = '未开售';
+            //
+            // } else if (data.stime >= item.sellEnd) {
+            //     //停售
+            //     stateHtml = '停售';
+            //
+            // } else {
+            //     //售卖中
+            //     if (item.usedQuota >= item.quota) {
+            //         //售完
+            //         stateHtml = '售完';
+            //
+            //     } else {
+            //         //ing
+            //         stateHtml = '售卖中';
+            //     }
+            // }
 
-            if (data.stime < item.sellStart){
-                //未开售
-                stateHtml = '未开售';
-
-            } else if (data.stime >= item.sellEnd) {
-                //停售
-                stateHtml = '停售';
-
-            } else {
-                //售卖中
-                if (item.usedQuota >= item.quota) {
-                    //售完
-                    stateHtml = '售完';
-
-                } else {
-                    //ing
-                    stateHtml = '售卖中';
-                }
-            }
-
+                // `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+                // `title` char(50) DEFAULT '' COMMENT '标题',
+                // `headPic` char(200) DEFAULT NULL COMMENT '新闻展示图片',
+                // `content` text COMMENT '内容',
+                // `type` int(4) DEFAULT NULL COMMENT '新闻类型:1荣誉榜 2热门资讯 3个人专栏 4合作专栏',
+                // `index` int(11) DEFAULT NULL COMMENT '序号',
+                // `ctime` datetime DEFAULT NULL,
+                // `utime` datetime DEFAULT NULL,
 
             tempCourseHtml +=  '<tr>'
                             +  '<td class="id">' + item.id + '</td>'
                             +  '<td class="type">' + courseType + '</td>'
-                            + '<td class="name"><a href="http://www.kaochong.com/course/detail-' + item.id+ '.html">' + item.title + ' </a></td>'
-                            + '<td class="price">' + item.price / 100 + '</td>'
-                            + '<td class="state">' + isReleased + '</td>'
-                            + '<td class="weight">' + item.weight + '</td>'
-                            + '<td class="order">' + item.usedQuota + '/<a href="/order/list?courseId=' + item.id + '">明细</a></td>'
-                            + '<td class="state">' + stateHtml + '</td>'
+                            + '<td class="name"> '+ item.title + '</td>'
+                            + '<td class="headPic">' +'new.chaifangchen.com'+ item.headPic + '</td>'
+                            + '<td class="index">' + item.index + '</td>'
+                            + '<td class="ctime" th:text="${#dates.format(user.date, "yyyy-MM-dd")}">1111</td>'
                             + '<td class="operate">'
-                            + '<a href="/course/detail?courseId=' + item.id+ '">编辑信息</a>/'
-                            + '<a href="/course/lesson/list?courseId=' + item.id+ '">编辑课次</a>/'
-                            + isPublish
+                            + '<a href="/admin/new/detail?id=' + item.id+ '">编辑信息</a>/'
+                            // + '<a href="/course/lesson/list?courseId=' + item.id+ '">编辑课次</a>/'
+                            // + isPublish
                            /* + '/<a id="del" class="del" onclick="CourseList.operate(\'del\', ' + item.id + ');" href="javascript:;">删除</a>/'*/
-                            + '/<a id="give" href="/course/give?courseId=' + item.id+ '">其他</a>'
+                            + '/<a id="give" href="/admin/new/delete?id=' + item.id+ '">删除</a>'
                             + '</td>'
                             + '</tr>';
         });

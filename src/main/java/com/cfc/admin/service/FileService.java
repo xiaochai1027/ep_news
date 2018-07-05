@@ -20,7 +20,7 @@ import java.util.UUID;
 public class FileService {
     private static Logger logger = LoggerFactory.getLogger(FileService.class);
 
-    private static String IMAGE_UPLOAD_PATH = "/news/image/";
+    private static String IMAGE_UPLOAD_PATH = "/home/news/image";
 
     private static String IMAGE_UPLOAD_RESULT_BASE_URL = "/image/";
     private static final char FILE_SEPERATOR = '.';

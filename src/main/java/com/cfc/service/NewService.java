@@ -12,11 +12,11 @@ import java.util.Map;
  */
 public class NewService {
 
-    public static Map<Integer, Map<String, Object>> homePage(){
+    public static Map<String, Map<String, Object>> homePage(){
         List<Map<String, Object>> news = DBUtil.queryForListMap("select * from `new` order by index desc group by type ");
-        Map<Integer, Map<String, Object>> map = new HashMap<>();
+        Map<String, Map<String, Object>> map = new HashMap<>();
         news.parallelStream().forEach(x -> {
-            map.put((Integer)x.get("type"), x);
+            map.put(x.get("type")+"", x);
         });
         return map;
     }
