@@ -20,27 +20,29 @@
 </head>
 
 <body>
-<div  id="head_nav">
-    <div class="head container">
-        <img src="/static/imgs/kc_logo.png">
-        <span>考虫后台管理系统</span>
-        <div class="float_right user_manage">
-            <a href="/static/page/change.html">后台切换入口</a>
-            当前登录：<a href="javascript:;" class="user">${adminuser.loginName! ""}</a><a href="/logout" class="quit">退出</a>
-        </div>
-    </div>
-</div>
+<!--<div  id="head_nav">-->
+    <!--<div class="head container">-->
+        <!--<img src="/static/imgs/kc_logo.png">-->
+        <!--<span>考虫后台管理系统</span>-->
+        <!--<div class="float_right user_manage">-->
+            <!--<a href="/static/page/change.html">后台切换入口</a>-->
+            <!--当前登录：<a href="javascript:;" class="user">${adminuser.loginName! ""}</a><a href="/logout" class="quit">退出</a>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<div th:replace="fragment/nav :: navtop"></div>
 
     <div class="clearfix container">
-        <ul id="left_nav" class="float_left">
+        <!--<ul id="left_nav" class="float_left">-->
 
-            <li class="course_manage"><a href="/statistic">数据平台</a></li>
+            <!--<li class="course_manage"><a href="/statistic">数据平台</a></li>-->
 
-            <li class="course_manage"><a href="/admin/new/list">课程管理</a></li>
+            <!--<li class="course_manage"><a href="/admin/new/list">课程管理</a></li>-->
 
-            <li class="course_manage"><a href="/course/card/group/list">课程卡片组管理</a></li>
+            <!--<li class="course_manage"><a href="/course/card/group/list">课程卡片组管理</a></li>-->
 
-        </ul>
+        <!--</ul>-->
+        <div th:include="fragment/nav_left"></div>
 
         <div id="right_con" class="float_right">
             <div class="wsType_hd">
