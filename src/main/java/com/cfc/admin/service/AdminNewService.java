@@ -24,6 +24,10 @@ public class AdminNewService {
     }
 
 
+    public static Map<String, Object> get(Integer id) {
+        return DBUtil.queryForMap("select * from `new` where id = ?", id);
+    }
+
     public static String createNew(Map<String, Object> params, Integer id) {
         if (id == null) {
             BaseDao.insert2(params, Tables.NEW);

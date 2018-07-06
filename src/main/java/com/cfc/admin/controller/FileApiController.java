@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
  * date  2018/6/25 下午2:08
  */
 @RestController
-@RequestMapping("admin/file")
+@RequestMapping("/admin/file")
 public class FileApiController {
 
     /**

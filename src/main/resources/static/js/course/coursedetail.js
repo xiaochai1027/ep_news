@@ -8,12 +8,12 @@ function Detail() {
             classNodeImg(type);
         }
         ajax({
-            url : '/api/course/add',
+            url : '/api/admin/new/add',
             type : 'post',
             data : $('#form').serialize()
         }).done(function(data) {
             dialog.dismiss();
-            var url = document.referrer && document.referrer != window.location.href  ? document.referrer : '/course/list?wsType=2';
+            var url = document.referrer && document.referrer != window.location.href  ? document.referrer : '/admin/new/list';
             window.location.href = url;
         }, function() {dialog.dismiss();});
     }
@@ -27,16 +27,10 @@ function Detail() {
                 success : function(data) {
                     $('#' + inputId).val(data.results.url);
                     $('#upload_pic').val('');
-                    $('#upload_picLarge').val('');
-                    $('#upload_picSquare').val('');
-                    $('#upload_picRules').val('');
                 },
                 error : function() {
                     alert('ok');
                     $('#upload_pic').val('');
-                    $('#upload_picLarge').val('');
-                    $('#upload_picSquare').val('');
-                    $('#upload_picRules').val('');
                 }});
     }
 }
@@ -47,9 +41,6 @@ $(document).ready(function() {
     var needAddress = $('#needAddress').val();
     var courseId = $('#courseId').val();
     var ws_type = $('#j-wsType').val() || 1;
-    if (courseId) {
-        getTags(ws_type, courseId);
-    }
 
     $('#sellStart').datetimepicker({
         mask:'9999/19/39 29:59'
@@ -84,9 +75,6 @@ $(document).ready(function() {
     //     }
     // });
 
-    $('#j-delay-time-shade').click(function (){
-        alert('选择延迟发货开关才可以选择延迟发货时间');
-    });
 
     $('#j-delayTime').datetimepicker({
         lang:'ch',
@@ -97,38 +85,6 @@ $(document).ready(function() {
 
 
     $('#save').click(function (){
-        if ($('#j-needAddress').is(':checked')) {
-            if ($('#j-price').val() == 0) {
-                alert('免费课不需要收货地址');
-                return;
-            }
-        }
-
-        if ($('#j-refundable').is(':checked')) {
-            if ($('#j-price').val() == 0) {
-                alert('免费课不允许用户退课');
-                return;
-            }
-        }
-
-        if ($('#j-needDelay').is(':checked')) {
-            if (!$('#j-delayTime').val()) {
-                alert('请选择延迟发货时间，再点击保存按钮');
-                return;
-            }
-        }
-
-        if ($('#j-regfree-checkbox').is(':checked')) {
-            if (!$('#j-regfree-course').val()) {
-                alert('使用免登陆听课，请填写分享注册赠课ID');
-                return;
-            }
-        } else {
-            if ($('#j-regfree-course').val()) {
-                alert('非免登陆听课，不需要填写分享注册赠课ID');
-                return;
-            }
-        }
 
         detail.submit();
     });
@@ -155,135 +111,7 @@ $(document).ready(function() {
     });
 
     $('#upload_pic').change(inputChange('pic'));
-    $('#upload_picLarge').change(inputChange('picLarge'));
-    $('#upload_picSquare').change(inputChange('picSquare'));
-    $('#upload_picRules').change(inputChange('picRules'));
 
-    $('div#add_groups').click(function(){
-        var index = $('.order_index').val();
-        var title = $('.add_groups_title').val();
-        if (!index || !title){
-            alert('请填完整!');
-            return;
-        }
-
-        var leng = $('ul#lesson_groups li').length + 1;
-        var temp = '<li><input type="text"  class="lg_index"  name="lg_index_'
-            + leng
-            +  '" value="'
-            + index
-            +  '"/><input type="text" class="lg_title" name="lg_title_'
-            + leng
-            + '" maxlength=15 value="'
-            + title
-            + '"/><input type="hidden" class="lg_del" name="lg_del_'
-            + index
-            + '" value="0" class="lg_del"><div class="save_groups lesson_groups_btn">保存</div><div class="delete_groups lesson_groups_btn">删除</div></li>';
-        $('#lesson_groups').append(temp);
-
-        $('.order_index').val('');
-        $('.add_groups_title').val('');
-    });
-
-    $('#lesson_groups').delegate('div.save_groups', 'click', function(){
-        var id = $(this).parent().find('.lg_id').val();
-        var title = $(this).parent().find('.lg_title').val();
-        var index = $(this).parent().find('.lg_index').val();
-        var url = id ? '/api/course/lessongroup/add?title=' + title + '&courseId=' + courseId + '&index=' + index + '&id=' + id
-            : '/api/course/lessongroup/add?title=' + title + '&courseId=' + courseId + '&index=' + index
-        ajax({
-            url: url
-        }).done(function(){
-            window.location.reload();
-        }, function (){});
-    }).delegate('div.delete_groups','click',function(){
-        // $(this).parent().hide().find('.lg_del').val(1);
-        var id = $(this).parent().find('.lg_id').val();
-        ajax({
-            url: '/api/course/lessongroup/del?courseId=' + courseId + '&id=' + id
-        }).done(function (){
-            window.location.reload();
-        }, function(){});
-    });
-
-    $('#j-card-checkbox').click(function() {
-        if ($(this).is(':checked')) {
-            if ( !$('.j-tag-checkbox').is(':checked') ) {
-                alert('请至少选择一个考试类型');
-                $(this).prop('checked', false);
-                return;
-            }
-            $('.j-exam-batch').prop('disabled', false);
-        } else {
-            $('.j-exam-batch').prop('disabled', true).val('');
-        }
-    });
-
-    //order
-    if (needAddress == 1) {
-        $('#j-express-intro').show();
-        getOrderList(courseId);
-    } else {
-        $('#j-express-intro').hide();
-    }
-
-    $('#j-needAddress').click(function (){
-        if ($(this).is(':checked')) {
-            $('#j-express-intro').show();
-            getOrderList(courseId);
-        } else {
-            $('#j-express-intro').hide();
-            $('#j-express-list').html('');
-        }
-    });
-
-    //add-order
-    $('#j-add-express').click(function (){
-        var html = $(temp);
-        html.addClass('j-add-express-li');
-        html.find('.j-cut-off-date').datetimepicker({
-            mask:'9999/19/39 29:59'
-        });
-        html.find('.j-effect-btn').remove();
-        $('#j-express-list').append(html);
-    });
-
-    //save、cancel、effect
-    $('#j-express-list').delegate('.j-save-btn', 'click', function (){
-
-        if (window.confirm("确定要保存吗?")) {
-            var parent = $(this).parent(),
-                id     = parent.find('.j-express-order').data('id') || '',
-                index  = parent.find('.j-express-order').val(),
-                name   = parent.find('.j-express-name').val(),
-                date   = parent.find('.j-cut-off-date').val();
-
-            ajax({
-                url: '/api/course/express/add?index=' + index + '&name=' + name + '&close=' + date + '&courseId=' + courseId + '&id=' + id
-            }).done(function (){
-                window.location.reload();
-            }, function (){});
-        }
-
-    }).delegate('.j-effect-btn', 'click', function (){
-
-        if (window.confirm("确定要生效吗?")) {
-            var parent = $(this).parent(),
-                id     = parent.find('.j-express-order').data('id');
-
-            ajax({
-                url: '/api/course/express/effect?id=' + id
-            }).done(function (){
-                window.location.reload();
-            }, function (){});
-        }
-
-
-    }).delegate('.j-cancel-btn', 'click', function () {
-
-        $(this).parent().remove();
-
-    });
 
 });
 
@@ -373,61 +201,4 @@ function classNodeImg(type){
     }
 
     $('#picRules').val(imgUrl);
-}
-
-function getTags (type, courseId){
-    var ws_type = parseInt(type);
-    var courseId = courseId;
-    var url =  '';
-    if(courseId){
-        url = '/api/course/tag/list/by/type?type=' + ws_type + '&courseId=' + courseId;
-    } else {
-        url =  '/api/course/tag/list/by/type?type=' + ws_type;
-    }
-    ajax({
-        url: url
-    }).done(function (data){
-        $('#j-tags-list').html('<span class="sell_intro_sub">课程Tag</span>');
-        if (data.results.length == 0) {
-            //不显示tags
-            $('#j-tags-intro-hd').hide();
-        } else {
-            $.each(data.results, function (i, item){
-                var html = $(tags_temp);
-                html.find('.tags_type').html(item.name);
-                html.find('.tags_item').val(item.id);
-                if(item.selected) {
-                    html.find('.tags_item').attr('checked','checked');
-                }
-                $('#j-tags-list').append(html);
-            });
-            $('#j-tags-list').append('<div class="tags_sure_btn" id="j-tags-sure-btn">保存</div>').show();
-            $('#j-tags-intro-hd').show();
-        }
-        $('#j-tags-list').delegate('#j-tags-sure-btn', 'click', function (){
-            var courseId = $('#courseId').val();
-            if (courseId) {
-                var tags = '';
-                $('.j-tags-item:checked').each(function (i, item){
-                    var id = $(item).val();
-                    tags = tags + ',' + id;
-                });
-                tags= tags.substring(1);
-
-                ajax({
-                    url:'/api/course/tag/set?courseId=' + courseId + '&tags=' + tags + '&wsType=' + ws_type
-                }).done(function(data){
-                    window.location.reload();
-                }, function (data){
-                    alert('保存失败了');
-                });
-            } else {
-                alert('请先保存课程，再来保存课程Tag');
-            }
-
-        });
-
-    }, function (data){
-        console.log('获取tags失败');
-    });
 }

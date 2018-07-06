@@ -94,34 +94,27 @@ tr.title td {
 td.id {
   width: 50px;
 }
-td.type,
-td.vipCourseType {
+td.type {
   width: 50px;
 }
 td.name {
   width: 157px;
 }
-td.price {
+td.headPic {
+  width: 280px;
+}
+
+td.index {
   width: 50px;
 }
-td.state {
-  width: 50px;
-}
-td.weight {
-  width: 50px;
-}
-td.order {
+td.ctime {
   width: 75px;
 }
-td.state {
-  width: 55px;
-}
+
 td.operate {
-  width: 230px;
-}
-td.classId {
   width: 100px;
 }
+
 /*state 状态*/
 .unreleased {
   color: #ff6600;

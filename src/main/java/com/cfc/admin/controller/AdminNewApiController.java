@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -26,13 +28,24 @@ public class AdminNewApiController extends BaseApiController {
     }
 
     @RequestMapping("/add")
+    @ResponseBody
     public Object add(){
         Map<String, Object> params = KCUtil.getParameterMap(SpringMVCUtil.getRequest());
-        return genReturnJSON(AdminNewService.createNew(params, (Integer)params.get("id")));
+        Map<String, Object> data = new HashMap<>();
+        data.put("id", params.get("id"));
+        data.put("title", params.get("title"));
+        data.put("index", params.get("index"));
+        data.put("content", params.get("editorValue"));
+        data.put("headPic", params.get("pic"));
+        data.put("type", params.get("type"));
+        data.put("ctime", new Date());
+        data.put("utime", new Date());
+        return genReturnJSON(AdminNewService.createNew(data, Integer.valueOf(params.get("id")+"")));
 
     }
 
     @RequestMapping("/delete")
+    @ResponseBody
     public Object list(Integer id) {
         return genReturnJSON(AdminNewService.delete(id));
     }

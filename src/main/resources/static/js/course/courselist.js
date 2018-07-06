@@ -65,7 +65,8 @@ function getCourseData(pageNum, key){
         var isReleased = '',
             isPublish = '',
             courseType = '',
-            tempCourseHtml = '';
+            tempCourseHtml = '',
+            ctime = '';
 
         //翻页控件初始化~
         setPager(data.page.pageCount, data.page.totalCount);
@@ -123,16 +124,16 @@ function getCourseData(pageNum, key){
                 // `content` text COMMENT '内容',
                 // `type` int(4) DEFAULT NULL COMMENT '新闻类型:1荣誉榜 2热门资讯 3个人专栏 4合作专栏',
                 // `index` int(11) DEFAULT NULL COMMENT '序号',
-                // `ctime` datetime DEFAULT NULL,
-                // `utime` datetime DEFAULT NULL,
-
+            // `ctime` datetime DEFAULT NULL,
+            // `utime` datetime DEFAULT NULL,
+            var c =timeStamp2String(item.ctime);
             tempCourseHtml +=  '<tr>'
                             +  '<td class="id">' + item.id + '</td>'
                             +  '<td class="type">' + courseType + '</td>'
                             + '<td class="name"> '+ item.title + '</td>'
-                            + '<td class="headPic">' +'new.chaifangchen.com'+ item.headPic + '</td>'
+                            + '<td class="headPic">' + item.headPic + '</td>'
                             + '<td class="index">' + item.index + '</td>'
-                            + '<td class="ctime" th:text="${#dates.format(user.date, "yyyy-MM-dd")}">1111</td>'
+                            + '<td id="ctime" class="ctime">'+c+'</td>'
                             + '<td class="operate">'
                             + '<a href="/admin/new/detail?id=' + item.id+ '">编辑信息</a>/'
                             // + '<a href="/course/lesson/list?courseId=' + item.id+ '">编辑课次</a>/'
@@ -191,4 +192,30 @@ function getParameter(name) {
     var r = window.location.search.substr(1).match(reg);
     if (r != null) return decodeURI(r[2]);
     return null;
+}
+
+//unix 转换成 yyyy-mm-dd hh:mm
+function getCloseMill(UNIX_timestamp){
+    var a = new Date(UNIX_timestamp * 1000);
+    var months = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var hour = a.getHours();
+    var min = a.getMinutes();
+    var sec = a.getSeconds();
+    var time = year + '/' + month + '/' + addZero(date) + ' ' + addZero(hour) + ':' + addZero(min) ;
+    return time;
+}
+
+function timeStamp2String(time){
+    var datetime = new Date();
+    datetime.setTime(time);
+    var year = datetime.getFullYear();
+    var month = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+    var date = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+    var hour = datetime.getHours()< 10 ? "0" + datetime.getHours() : datetime.getHours();
+    var minute = datetime.getMinutes()< 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
+    var second = datetime.getSeconds()< 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
+    return year + "/" + month + "/" + date+" "+hour+":"+minute+":"+second;
 }
