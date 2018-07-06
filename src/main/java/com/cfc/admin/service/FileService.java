@@ -44,7 +44,6 @@ public class FileService {
             Files.copy(file.getInputStream(), savePath);
             HashMap result = new HashMap();
             result.put("url", IMAGE_UPLOAD_RESULT_BASE_URL + fileName);
-            result.put("fileType", fileType);
             return result;
 
         } catch (IOException e) {

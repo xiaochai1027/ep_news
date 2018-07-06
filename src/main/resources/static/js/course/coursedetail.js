@@ -27,10 +27,16 @@ function Detail() {
                 success : function(data) {
                     $('#' + inputId).val(data.results.url);
                     $('#upload_pic').val('');
+                    $('#upload_picLarge').val('');
+                    $('#upload_picSquare').val('');
+                    $('#upload_picRules').val('');
                 },
                 error : function() {
                     alert('ok');
                     $('#upload_pic').val('');
+                    $('#upload_picLarge').val('');
+                    $('#upload_picSquare').val('');
+                    $('#upload_picRules').val('');
                 }});
     }
 }
@@ -110,7 +116,7 @@ $(document).ready(function() {
         }
     });
 
-    $('#upload_pic').change(inputChange('pic'));
+    $('#upload_pic').change(inputChange('headPic'));
 
 
 });
