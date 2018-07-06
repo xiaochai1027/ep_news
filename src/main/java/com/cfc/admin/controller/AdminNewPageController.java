@@ -23,13 +23,13 @@ public class AdminNewPageController extends BasePageController {
 
     @RequestMapping("/list")
     public Object list() {
-        genReturnMap(new HashMap<>());
-        return "/admin/new/list";
+//        genReturnMap(new HashMap<>());
+        return "admin/new/list";
     }
 
     @RequestMapping("/detail")
     public Object detail(Integer id) {
-        ModelAndView modelAndView = new ModelAndView("/admin/new/detail");
+        ModelAndView modelAndView = new ModelAndView("admin/new/detail");
         if (id != null) {
             Map<String, Object> map = AdminNewService.get(id);
             modelAndView.addAllObjects(genReturnMap(map));

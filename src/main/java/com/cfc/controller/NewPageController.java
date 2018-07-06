@@ -19,14 +19,14 @@ public class NewPageController extends BasePageController {
 
     @RequestMapping("/index")
     public ModelAndView home(){
-        ModelAndView mv = new ModelAndView();
+        ModelAndView mv = new ModelAndView("index");
         mv.addAllObjects(NewService.homePage());
         return mv;
     }
 
     @RequestMapping("")
     public ModelAndView home1(){
-        ModelAndView mv = new ModelAndView();
+        ModelAndView mv = new ModelAndView("index");
         mv.addAllObjects(NewService.homePage());
         return mv;
     }

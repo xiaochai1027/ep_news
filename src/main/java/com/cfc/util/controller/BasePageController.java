@@ -71,7 +71,7 @@ public abstract class BasePageController extends BaseController {
         c2.setMaxAge(0);
         getResponse().addCookie(c);
         getResponse().addCookie(c2);
-        clearCookieAll("kc_token");
+//        clearCookieAll("kc_token");
     }
 
     protected void clearCookieAll(String name) {
