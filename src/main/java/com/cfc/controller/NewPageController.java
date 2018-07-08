@@ -33,7 +33,7 @@ public class NewPageController extends BasePageController {
         return mv;
     }
 
-    @RequestMapping("/new/detail")
+    @RequestMapping("/detail")
     public ModelAndView detail(Integer id) {
         ModelAndView mv = new ModelAndView("news");
         mv.addObject("news", NewService.detail(id));
