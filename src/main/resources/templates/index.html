@@ -1,4 +1,5 @@
 <!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <html class="no-js">
 <head>
     <meta charset="utf-8">
@@ -82,25 +83,29 @@
         <div class="am-u-sm-12 am-u-md-12 am-u-lg-8">
             <div data-am-widget="slider" class="am-slider am-slider-c1" data-am-slider='{"directionNav":false}' >
                 <ul class="am-slides">
-                    <li>
-                        <a href="events_show.html"><img src="Temp-images/bb1.jpg"></a>
-                        <div class="am-slider-desc">远方 有一个地方 那里种有我们的梦想</div>
+                    <li th:each="u : ${honor}">
+                        <a th:href="'/new/detail?id='+ ${u.id}"><img th:src="${u.headPic}"></a>
+                        <div class="am-slider-desc" th:text="${u.title}">远方 有一个地方 那里种有我们的梦想</div>
+                    </li>
+                    <!--<li>-->
+                        <!--<a href="events_show.html"><img src="Temp-images/bb1.jpg"></a>-->
+                        <!--<div class="am-slider-desc">远方 有一个地方 那里种有我们的梦想</div>-->
 
-                    </li>
-                    <li>
-                        <a href="events_show.html"><img src="Temp-images/bb2.jpg"></a>
-                        <div class="am-slider-desc">某天 也许会相遇 相遇在这个好地方</div>
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="events_show.html"><img src="Temp-images/bb2.jpg"></a>-->
+                        <!--<div class="am-slider-desc">某天 也许会相遇 相遇在这个好地方</div>-->
 
-                    </li>
-                    <li>
-                        <a href="events_show.html"><img src="Temp-images/bb3.jpg"></a>
-                        <div class="am-slider-desc">不要太担心 只因为我相信 终会走过这条遥远的道路</div>
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="events_show.html"><img src="Temp-images/bb3.jpg"></a>-->
+                        <!--<div class="am-slider-desc">不要太担心 只因为我相信 终会走过这条遥远的道路</div>-->
 
-                    </li>
-                    <li>
-                        <a href="events_show.html"><img src="Temp-images/bb4.jpg"></a>
-                        <div class="am-slider-desc">OH PARA PARADISE 是否那么重要 你是否那么地遥远</div>
-                    </li>
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="events_show.html"><img src="Temp-images/bb4.jpg"></a>-->
+                        <!--<div class="am-slider-desc">OH PARA PARADISE 是否那么重要 你是否那么地遥远</div>-->
+                    <!--</li>-->
                 </ul>
             </div>
         </div>
@@ -151,6 +156,8 @@
 <!--banner2-->
 <div class="am-container">
     <ul class="padding-none banner2 am-gallery am-avg-sm-2 am-avg-md-4 am-avg-lg-4 am-gallery-overlay" data-am-gallery="{ pureview: true }" >
+
+
         <li>
             <div class="am-gallery-item">
                 <a href="news.html">

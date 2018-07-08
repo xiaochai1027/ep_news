@@ -6,6 +6,7 @@ import com.cfc.util.controller.BaseApiController;
 import com.cfc.util.model.PageModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * author fangchen
@@ -17,6 +18,7 @@ public class NewApiController extends BaseApiController {
 
 
     @RequestMapping("/list")
+    @ResponseBody
     public Object list(PageModel pageModel){
         return genReturnJSON(AdminNewService.list(pageModel), pageModel.getPageNum(), AdminNewService.count());
     }

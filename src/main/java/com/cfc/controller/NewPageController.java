@@ -28,6 +28,15 @@ public class NewPageController extends BasePageController {
     public ModelAndView home1(){
         ModelAndView mv = new ModelAndView("index");
         mv.addAllObjects(NewService.homePage());
+
+//        mv.addObject("honor",NewService.homePage());
+        return mv;
+    }
+
+    @RequestMapping("/new/detail")
+    public ModelAndView detail(Integer id) {
+        ModelAndView mv = new ModelAndView("news");
+        mv.addObject("news", NewService.detail(id));
         return mv;
     }
 }
