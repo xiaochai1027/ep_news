@@ -24,8 +24,15 @@ public class AdminNewApiController extends BaseApiController {
 
     @RequestMapping("/list")
     @ResponseBody
-    public Object list(PageModel pageModel) {
-        return genReturnJSON(AdminNewService.list(pageModel), pageModel.getPageNum(), AdminNewService.count());
+    public Object list(PageModel pageModel, String key) {
+        Object o = null;
+        if (TextUtils.isEmpty(key)) {
+
+            o = genReturnJSON(AdminNewService.list(pageModel), pageModel.getPageNum(), AdminNewService.count());
+        } else {
+            o = genReturnJSON(AdminNewService.listBykey(pageModel, key), pageModel.getPageNum(), AdminNewService.countBykey(key));
+        }
+        return o;
     }
 
     @RequestMapping("/add")
@@ -43,7 +50,7 @@ public class AdminNewApiController extends BaseApiController {
         data.put("type", params.get("type"));
         data.put("ctime", new Date());
         data.put("utime", new Date());
-        return genReturnJSON(AdminNewService.createNew(data, Integer.valueOf(data.get("id") + "")));
+        return genReturnJSON(AdminNewService.createNew(data));
 
     }
 

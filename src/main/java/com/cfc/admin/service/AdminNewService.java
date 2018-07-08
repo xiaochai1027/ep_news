@@ -1,6 +1,8 @@
 package com.cfc.admin.service;
 
 import com.cfc.commons.Tables;
+import com.cfc.util.KCSqlUtil;
+import com.cfc.util.KCUtil;
 import com.cfc.util.basedao.BaseDao;
 import com.cfc.util.basedao.DBUtil;
 import com.cfc.util.model.PageModel;
@@ -23,12 +25,24 @@ public class AdminNewService {
         return DBUtil.queryForInt("select count(*) from `new`");
     }
 
+    public static List<Map<String,Object>> listBykey(PageModel pageModel,String key){
+        return DBUtil.queryForListMap("select * from `new` where  title like ? order by ctime desc limit ?,?","%"+key+"%", pageModel.getStart(), pageModel.getCount());
+    }
+
+    public static Integer countBykey(String key){
+        return DBUtil.queryForInt("select count(*) from `new` where  title like ?",  "%"+key+"%");
+    }
+
 
     public static Map<String, Object> get(Integer id) {
         return DBUtil.queryForMap("select * from `new` where id = ?", id);
     }
 
-    public static String createNew(Map<String, Object> params, Integer id) {
+    public static String createNew(Map<String, Object> params) {
+        Integer id = null;
+        if (params.get("id") != null) {
+            id = Integer.parseInt(params.get("id") + "");
+        }
         if (id == null) {
             BaseDao.insert2(params, Tables.NEW);
         } else {
