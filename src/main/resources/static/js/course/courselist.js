@@ -156,7 +156,6 @@ var setPager = function (pageCount, totalCount) {
         totalRecords      = totalCount,
         pageNo            = getParameter('pageNum'),
         key               = getParameter('key'),
-        wsType = getParameter('wsType'),
         linkKey           = '';
 
     if (!pageNo) {
@@ -165,10 +164,6 @@ var setPager = function (pageCount, totalCount) {
 
     if (key){
         linkKey = '&key=' + key;
-    }
-
-    if (wsType) {
-        linkKey += '&wsType=' + wsType;
     }
 
     kkpager.generPageHtml({

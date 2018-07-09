@@ -28,9 +28,9 @@ public class AdminNewApiController extends BaseApiController {
         Object o = null;
         if (TextUtils.isEmpty(key)) {
 
-            o = genReturnJSON(AdminNewService.list(pageModel), pageModel.getPageNum(), AdminNewService.count());
+            o = genReturnJSON(AdminNewService.list(pageModel), pageModel.getPageSize(), AdminNewService.count());
         } else {
-            o = genReturnJSON(AdminNewService.listBykey(pageModel, key), pageModel.getPageNum(), AdminNewService.countBykey(key));
+            o = genReturnJSON(AdminNewService.listBykey(pageModel, key), pageModel.getPageSize(), AdminNewService.countBykey(key));
         }
         return o;
     }
