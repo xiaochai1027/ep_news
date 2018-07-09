@@ -132,7 +132,7 @@ function getCourseData(pageNum, key){
                             +  '<td class="type">' + courseType + '</td>'
                             + '<td class="name"> '+ item.title + '</td>'
                             + '<td class="headPic">' + item.headPic + '</td>'
-                            + '<td class="index">' + item.index + '</td>'
+                            + '<td class="index">' + item.indexs + '</td>'
                             + '<td id="ctime" class="ctime">'+c+'</td>'
                             + '<td class="operate">'
                             + '<a href="/admin/new/detail?id=' + item.id+ '">编辑信息</a>/'
