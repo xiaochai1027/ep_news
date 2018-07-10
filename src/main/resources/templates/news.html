@@ -40,51 +40,8 @@
     <script src="js/public.js"></script>
 </head>
 <body>
-
-<header class="am-topbar am-topbar-fixed-top wos-header">
-    <div class="am-container">
-        <h1 class="am-topbar-brand">
-            <a href="#"><img src="images/logo.png" alt=""></a>
-        </h1>
-
-        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-warning am-show-sm-only"
-                data-am-collapse="{target: '#collapse-head'}">
-            <span class="am-sr-only">导航切换</span>
-            <span class="am-icon-bars"></span>
-        </button>
-
-        <div class="am-collapse am-topbar-collapse" id="collapse-head">
-            <ul class="am-nav am-nav-pills am-topbar-nav">
-                <li class="am-active"><a href="index.html">首页</a></li>
-                <li><a href="#">资讯</a></li>
-                <li><a href="#">专栏</a></li>
-                <li class="am-dropdown" data-am-dropdown>
-                    <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-                        案例 <span class="am-icon-caret-down"></span>
-                    </a>
-                    <ul class="am-dropdown-content">
-                        <li class="am-dropdown-header">案例</li>
-                        <li><a href="#">1. 游戏案例</a></li>
-                        <li><a href="#">2. 营销案例</a></li>
-                        <li><a href="#">3. 工具案例</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">评测</a></li>
-                <li><a href="#">活动</a></li>
-            </ul>
-
-            <div class="am-topbar-right">
-                <button class="am-btn am-btn-default am-topbar-btn am-btn-sm"><span class="am-icon-pencil"></span>注册</button>
-            </div>
-
-            <div class="am-topbar-right">
-                <button class="am-btn am-btn-danger am-topbar-btn am-btn-sm"><span class="am-icon-user"></span> 登录</button>
-            </div>
-        </div>
-    </div>
-</header>
-
-
+<!--header-->
+<div th:replace="fragment/header :: header"></div>
 <div class="am-g am-container">
     <div class="am-u-sm-12 am-u-md-12 am-u-lg-8">
         <div class="newstitles" >
@@ -330,39 +287,7 @@
     </a>
 </div>
 
-<footer>
-    <div class="content">
-        <ul class="am-avg-sm-5 am-avg-md-5 am-avg-lg-5 am-thumbnails">
-            <li><a href="#">联系我们</a></li>
-            <li><a href="#">加入我们</a></li>
-            <li><a href="#">合作伙伴</a></li>
-            <li><a href="#">广告及服务</a></li>
-            <li><a href="#">友情链接</a></li>
-        </ul>
-        <div class="btnlogo"><img src="images/btnlogo.png"/></div>
-        <p>Amaze UI出品<br>© 2016 AllMobilize, Inc. Licensed under MIT license. 模板收集自 <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> -  More Templates  <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>.</p>
-        <div class="w2div">
-            <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
-  am-avg-md-2 am-avg-lg-2 am-gallery-overlay" data-am-gallery="{ pureview: true }" >
-                <li class="w2">
-                    <div class="am-gallery-item">
-                        <a href="Temp-images/dd.jpg">
-                            <img src="Temp-images/dd.jpg" />
-                            <h3 class="am-gallery-title">订阅号：Amaze UI</h3>
-                        </a>
-                    </div>
-                </li>
-                <li   class="w2">
-                    <div class="am-gallery-item">
-                        <a href="Temp-images/dd.jpg">
-                            <img src="Temp-images/dd.jpg"/>
-                            <h3 class="am-gallery-title">服务号：Amaze UI</h3>
-                        </a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</footer>
+<!--footer-->
+<div th:replace="fragment/footer :: footer"></div>
 </body>
 </html>
