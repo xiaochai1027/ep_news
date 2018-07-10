@@ -141,7 +141,7 @@ public abstract class BasePageController extends BaseController {
     }
 
     protected String getErrorUri() {
-        return "/error.html";
+        return "/404/error.html";
     }
 
     private String getKickOfUri() {
