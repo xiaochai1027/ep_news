@@ -13,12 +13,12 @@ import java.util.Map;
  * @auther fangchen.chai ON 2017/11/20
  */
 @Controller
-@RequestMapping("/404")
+@RequestMapping("/error")
 public class ErrorController {
 
     @GetMapping("/error")
     public String error() {
-        return"/404/error";
+        return"error/error";
     }
 
 
