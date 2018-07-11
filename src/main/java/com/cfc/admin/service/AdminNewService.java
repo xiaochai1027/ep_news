@@ -1,8 +1,6 @@
 package com.cfc.admin.service;
 
 import com.cfc.commons.Tables;
-import com.cfc.util.KCSqlUtil;
-import com.cfc.util.KCUtil;
 import com.cfc.util.basedao.BaseDao;
 import com.cfc.util.basedao.DBUtil;
 import com.cfc.util.model.PageModel;
@@ -18,7 +16,7 @@ public class AdminNewService {
 
 
     public static List<Map<String,Object>> list(PageModel pageModel){
-       return DBUtil.queryForListMap("select * from `new` order by ctime desc limit ?,?", pageModel.getStart(), pageModel.getCount());
+       return DBUtil.queryForListMap("select id,title,headPic,type,indexs,ctime from `new` order by ctime desc limit ?,?", pageModel.getStart(), pageModel.getCount());
     }
 
     public static Integer count(){

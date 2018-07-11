@@ -29,15 +29,14 @@ public class NewPageController extends BasePageController {
     public ModelAndView home1(){
         ModelAndView mv = new ModelAndView("index");
         mv.addAllObjects(NewService.homePage());
-
-//        mv.addObject("honor",NewService.homePage());
         return mv;
     }
 
-    @RequestMapping("/category2")
+    @RequestMapping("/category")
     public ModelAndView getCategory(Integer type, PageModel pageModel) {
-        ModelAndView mv = new ModelAndView("category2");
+        ModelAndView mv = new ModelAndView("category");
         mv.addObject("list",NewService.listByType(type,pageModel));
+        PageModel.setPage(mv,pageModel.getPageSize(),NewService.countByType(type));
         return mv;
     }
 
@@ -48,4 +47,5 @@ public class NewPageController extends BasePageController {
         mv.addObject("news", NewService.detail(id));
         return mv;
     }
+
 }

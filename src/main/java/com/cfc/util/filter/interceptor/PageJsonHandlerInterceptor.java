@@ -27,7 +27,7 @@ public class PageJsonHandlerInterceptor implements HandlerInterceptor {
         if ("json".equalsIgnoreCase(request.getParameter("to"))) {
             modelAndView.setViewName("/fragment/empty");
             response.addHeader("Content-Type", "application/json");
-            String jsonStr = JSON.toJSONString(modelAndView.getModel(), SerializerFeature.BrowserCompatible
+            String jsonStr = JSON.toJSONString(modelAndView.getModelMap(), SerializerFeature.BrowserCompatible
                     , SerializerFeature.WriteMapNullValue
                     , SerializerFeature.WriteNullStringAsEmpty
                     , SerializerFeature.DisableCircularReferenceDetect);

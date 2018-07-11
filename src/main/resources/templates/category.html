@@ -1,4 +1,5 @@
 <!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <html class="no-js">
 <head>
     <meta charset="utf-8">
@@ -40,600 +41,271 @@
 </head>
 <body>
 
-<header class="am-topbar am-topbar-fixed-top wos-header">
-    <div class="am-container">
-        <h1 class="am-topbar-brand">
-            <a href="#"><img src="images/logo.png" alt=""></a>
-        </h1>
+<div th:replace="/fragment/header :: header"></div>
 
-        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-warning am-show-sm-only"
-                data-am-collapse="{target: '#collapse-head'}">
-            <span class="am-sr-only">导航切换</span>
-            <span class="am-icon-bars"></span>
-        </button>
 
-        <div class="am-collapse am-topbar-collapse" id="collapse-head">
-            <ul class="am-nav am-nav-pills am-topbar-nav">
-                <li class="am-active"><a href="index.html">首页</a></li>
-                <li><a href="#">资讯</a></li>
-                <li><a href="#">专栏</a></li>
-                <li class="am-dropdown" data-am-dropdown>
-                    <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-                        案例 <span class="am-icon-caret-down"></span>
-                    </a>
-                    <ul class="am-dropdown-content">
-                        <li class="am-dropdown-header">案例</li>
-                        <li><a href="#">1. 游戏案例</a></li>
-                        <li><a href="#">2. 营销案例</a></li>
-                        <li><a href="#">3. 工具案例</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">评测</a></li>
-                <li><a href="#">活动</a></li>
-            </ul>
-
-            <div class="am-topbar-right">
-                <button class="am-btn am-btn-default am-topbar-btn am-btn-sm"><span class="am-icon-pencil"></span>注册</button>
+<div class="category2top">
+    <div class="am-g am-container userinfo">
+        <div class="am-u-sm-12 am-u-md-12 am-u-lg-5 userinfo_left">
+            <div class="am-g">
+                <div class="am-u-md-12 am-u-lg-6 userface">
+                    <img src="Temp-images/face2.jpg">
+                </div>
+                <div class="am-u-md-12 am-u-lg-6 userin">
+                    <h3>山边小溪</h3>
+                    <h4>AmazeUI</h4>
+                    <p>文章<span>9</span></p>
+                    <button type="button" class="am-btn am-btn-warning am-hide-lg-only" style="margin: 0 auto; margin-top: 30px">
+                        <i class="am-icon-plus"></i>
+                        订阅
+                    </button>
+                </div>
             </div>
 
-            <div class="am-topbar-right">
-                <button class="am-btn am-btn-danger am-topbar-btn am-btn-sm"><span class="am-icon-user"></span> 登录</button>
+        </div>
+        <div class="am-u-sm-0 am-u-md-12 am-u-lg-4 am-show-lg-only userinfo_center">
+            削减是一个从源代码中删除不必要的字符的技术使它看起来简单而整洁。这种技术也被称为代码压缩和最小化。
+        </div>
+        <div class="am-u-sm-12 am-u-md-12 am-u-lg-3 am-show-lg-only userinfo_right">
+                <button type="button" class="am-btn am-btn-warning">
+                    <i class="am-icon-plus"></i>
+                    订阅
+                </button>
+        </div>
+
+    </div>
+</div>
+
+    <div class="am-g">
+        <div class="am-u-sm-0 am-u-md-2 am-u-lg-3">&nbsp;</div>
+        <div class="am-u-sm-12 am-u-md-8 am-u-lg-6">
+            <div data-am-widget="list_news" class="am-list-news am-list-news-default ">
+                <div class="am-list-news-bd">
+                    <ul class="am-list">
+                        <li  th:each="u : ${list}" class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" style="border-top: 0px">
+                            <div class="am-u-sm-5 am-list-thumb">
+                                <a th:href="'/detail?id='+${u.id}">
+                                    <img th:src="${u.headPic}" th:alt="${title}"/>
+                                </a>
+                            </div>
+
+                            <div class=" am-u-sm-7 am-list-main">
+                                <h3 class="am-list-item-hd"><a th:href="'/detail?id='+${u.id}" th:text="${u.title}">我最喜欢的一张画</a></h3>
+
+                                <div class="am-list-item-text" th:text="${u.title}">你最喜欢的艺术作品，告诉大家它们的------名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>
+
+                            </div>
+                        </li>
+
+                        <!--<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >-->
+                            <!--<div class="am-u-sm-5 am-list-thumb">-->
+                                <!--<a href="http://www.douban.com/online/11624755/">-->
+                                    <!--<img src="Temp-images/b2.jpg" alt="我最喜欢的一张画"/>-->
+                                <!--</a>-->
+                            <!--</div>-->
+
+                            <!--<div class=" am-u-sm-7 am-list-main">-->
+                                <!--<h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>-->
+
+                                <!--<div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的&#45;&#45;&#45;&#45;&#45;&#45;名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>-->
+
+                            <!--</div>-->
+                        <!--</li>-->
+
+                        <!--<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >-->
+                            <!--<div class="am-u-sm-5 am-list-thumb">-->
+                                <!--<a href="http://www.douban.com/online/11624755/">-->
+                                    <!--<img src="Temp-images/b2.jpg" alt="我最喜欢的一张画"/>-->
+                                <!--</a>-->
+                            <!--</div>-->
+
+                            <!--<div class=" am-u-sm-7 am-list-main">-->
+                                <!--<h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>-->
+
+                                <!--<div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的&#45;&#45;&#45;&#45;&#45;&#45;名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>-->
+
+                            <!--</div>-->
+                        <!--</li>-->
+
+                        <!--<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >-->
+                            <!--<div class="am-u-sm-5 am-list-thumb">-->
+                                <!--<a href="http://www.douban.com/online/11624755/">-->
+                                    <!--<img src="Temp-images/b2.jpg" alt="我最喜欢的一张画"/>-->
+                                <!--</a>-->
+                            <!--</div>-->
+
+                            <!--<div class=" am-u-sm-7 am-list-main">-->
+                                <!--<h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>-->
+
+                                <!--<div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的&#45;&#45;&#45;&#45;&#45;&#45;名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>-->
+
+                            <!--</div>-->
+                        <!--</li>-->
+
+                        <!--<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >-->
+                            <!--<div class="am-u-sm-5 am-list-thumb">-->
+                                <!--<a href="http://www.douban.com/online/11624755/">-->
+                                    <!--<img src="Temp-images/b2.jpg" alt="我最喜欢的一张画"/>-->
+                                <!--</a>-->
+                            <!--</div>-->
+
+                            <!--<div class=" am-u-sm-7 am-list-main">-->
+                                <!--<h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>-->
+
+                                <!--<div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的&#45;&#45;&#45;&#45;&#45;&#45;名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>-->
+
+                            <!--</div>-->
+                        <!--</li>-->
+
+                        <!--<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >-->
+                            <!--<div class="am-u-sm-5 am-list-thumb">-->
+                                <!--<a href="http://www.douban.com/online/11624755/">-->
+                                    <!--<img src="Temp-images/b2.jpg" alt="我最喜欢的一张画"/>-->
+                                <!--</a>-->
+                            <!--</div>-->
+
+                            <!--<div class=" am-u-sm-7 am-list-main">-->
+                                <!--<h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>-->
+
+                                <!--<div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的&#45;&#45;&#45;&#45;&#45;&#45;名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>-->
+
+                            <!--</div>-->
+                        <!--</li>-->
+
+                        <!--<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >-->
+                            <!--<div class="am-u-sm-5 am-list-thumb">-->
+                                <!--<a href="http://www.douban.com/online/11624755/">-->
+                                    <!--<img src="Temp-images/b2.jpg" alt="我最喜欢的一张画"/>-->
+                                <!--</a>-->
+                            <!--</div>-->
+
+                            <!--<div class=" am-u-sm-7 am-list-main">-->
+                                <!--<h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>-->
+
+                                <!--<div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的&#45;&#45;&#45;&#45;&#45;&#45;名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>-->
+
+                            <!--</div>-->
+                        <!--</li>-->
+
+                        <!--<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >-->
+                            <!--<div class="am-u-sm-5 am-list-thumb">-->
+                                <!--<a href="http://www.douban.com/online/11624755/">-->
+                                    <!--<img src="Temp-images/b2.jpg" alt="我最喜欢的一张画"/>-->
+                                <!--</a>-->
+                            <!--</div>-->
+
+                            <!--<div class=" am-u-sm-7 am-list-main">-->
+                                <!--<h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>-->
+
+                                <!--<div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的&#45;&#45;&#45;&#45;&#45;&#45;名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>-->
+
+                            <!--</div>-->
+                        <!--</li>-->
+                        <!--<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >-->
+                            <!--<div class="am-u-sm-5 am-list-thumb">-->
+                                <!--<a href="http://www.douban.com/online/11624755/">-->
+                                    <!--<img src="Temp-images/b2.jpg" alt="我最喜欢的一张画"/>-->
+                                <!--</a>-->
+                            <!--</div>-->
+
+                            <!--<div class=" am-u-sm-7 am-list-main">-->
+                                <!--<h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>-->
+
+                                <!--<div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的&#45;&#45;&#45;&#45;&#45;&#45;名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>-->
+
+                            <!--</div>-->
+                        <!--</li>-->
+                        <!--<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >-->
+                            <!--<div class="am-u-sm-5 am-list-thumb">-->
+                                <!--<a href="http://www.douban.com/online/11624755/">-->
+                                    <!--<img src="Temp-images/b2.jpg" alt="我最喜欢的一张画"/>-->
+                                <!--</a>-->
+                            <!--</div>-->
+
+                            <!--<div class=" am-u-sm-7 am-list-main">-->
+                                <!--<h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>-->
+
+                                <!--<div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的&#45;&#45;&#45;&#45;&#45;&#45;名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>-->
+
+                            <!--</div>-->
+                        <!--</li>-->
+
+                    </ul>
+
+                    <ul data-am-widget="pagination" class="am-pagination am-pagination-default" style="text-align: center">
+
+                        <li class="am-pagination-first ">
+                            <a href="#" class="">第一页</a>
+                        </li>
+
+                        <li class="am-pagination-prev ">
+                            <a href="#" class="">上一页</a>
+                        </li>
+
+
+                        <li class="" th:each=" i : ${#numbers.sequence(1,page.pageCount)}">
+                            <a th:href="'/catagory?type='+${#httpServletRequest.getParameter('type')}+'&pageNum='+${i}" th:text="${i}" class=""></a>
+                        </li>
+                        <!--<li >-->
+                            <!--<a href="#" class="">2</a>-->
+                        <!--</li>-->
+                        <!--<li class="">-->
+                            <!--<a href="#" class="">3</a>-->
+                        <!--</li>-->
+                        <!--<li class="">-->
+                            <!--<a href="#" class="">4</a>-->
+                        <!--</li>-->
+                        <!--<li class="">-->
+                            <!--<a href="#" class="">5</a>-->
+                        <!--</li>-->
+                        <!--<li class="">-->
+                            <!--<a href="#" class="">6</a>-->
+                        <!--</li>-->
+                        <!--<li class="">-->
+                            <!--<a href="#" class="">7</a>-->
+                        <!--</li>-->
+                        <!--<li class="">-->
+                            <!--<a href="#" class="">8</a>-->
+                        <!--</li>-->
+                        <!--<li class="am-active">-->
+                            <!--<a href="#">9</a>-->
+                        <!--</li>-->
+                        <!--<li class="">-->
+                            <!--<a href="#" class="">10</a>-->
+                        <!--</li>-->
+                        <!--<li class="">-->
+                            <!--<a href="#" class="">11</a>-->
+                        <!--</li>-->
+                        <!--<li class="">-->
+                            <!--<a href="#" class="">12</a>-->
+                        <!--</li>-->
+                        <!--<li class="">-->
+                            <!--<a href="#" class="">13</a>-->
+                        <!--</li>-->
+                        <!--<li class="">-->
+                            <!--<a href="#" class="">14</a>-->
+                        <!--</li>-->
+                        <!--<li class="">-->
+                            <!--<a href="#" class="">15</a>-->
+                        <!--</li>-->
+                        <!--<li class="">-->
+                            <!--<a href="#" class="">16</a>-->
+                        <!--</li>-->
+
+
+                        <li class="am-pagination-next ">
+                            <a href="#" class="">下一页</a>
+                        </li>
+
+                        <li class="am-pagination-last ">
+                            <a href="#" class="">最末页</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
+        <div class="am-u-sm-0 am-u-md-2 am-u-lg-3">&nbsp;</div>
     </div>
-</header>
-
-<div id="category_top">
-    <div class="am-hide-lg-only kz" id="leftbtn">
-        <i class="am-icon-angle-left" ></i>
-    </div>
-    <div class="am-hide-lg-only kz" style="right:0px;" id="rightbtn">
-        <i class="am-icon-angle-right"></i>
-    </div>
-    <div class="am-container" >
-        <ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-6 am-thumbnails" id="topface">
-            <li>
-                <a href="category2.html">
-                <div class="ctl active">
-                    <img src="Temp-images/face1.jpg">
-                    <h3>一号女嘉宾</h3>
-                    <p>MMM</p>
-                </div>
-                <button type="button" class="am-btn am-btn-primary">进入专栏</button>
-                </a>
-            </li>
-            <li>
-                <a href="http://www.sina.com">
-                <div class="ctl">
-                    <img src="Temp-images/face2.jpg">
-                    <h3>二号女嘉宾</h3>
-                    <p>AmazeUI</p>
-                </div>
-                <button type="button" class="am-btn am-btn-default">进入专栏</button>
-                </a>
-            </li>
-            <li>
-                <a href="http://www.qq.com">
-                    <div class="ctl">
-                        <img src="Temp-images/face3.jpg">
-                        <h3>三号女嘉宾</h3>
-                        <p>云适配</p>
-                    </div>
-                    <button type="button" class="am-btn am-btn-default">进入专栏</button>
-                </a>
-            </li>
-            <li>
-                <a href="http://www.youku.com">
-                    <div class="ctl">
-                        <img src="Temp-images/face4.jpg">
-                        <h3>四号女嘉宾</h3>
-                        <p>XXXX</p>
-                    </div>
-                    <button type="button" class="am-btn am-btn-default">进入专栏</button>
-                </a>
-            </li>
-            <li>
-                <a href="http://www.yahoo.com">
-                    <div class="ctl">
-                        <img src="Temp-images/face5.jpg">
-                        <h3>五号女嘉宾</h3>
-                        <p>去哪</p>
-                    </div>
-                    <button type="button" class="am-btn am-btn-default">进入专栏</button>
-                </a>
-            </li>
-            <li>
-                <a href="http://www.china.com">
-                    <div class="ctl">
-                        <img src="Temp-images/face6.jpg">
-                        <h3>六号女嘉宾</h3>
-                        <p>Yahoo</p>
-                    </div>
-                    <button type="button" class="am-btn am-btn-default">进入专栏</button>
-                </a>
-            </li>
-        </ul>
-
-    </div>
-
-</div>
-
-<script>
-    var countnum=5 //一共多少个图 例如6个请输入5
-    $("#leftbtn").click(function(){
-        var temp_href=$("#topface li:eq(0) a").attr("href");
-        var temp_img=$("#topface li:eq(0) img").attr("src");
-        var temp_h3=$("#topface li:eq(0) h3").html();
-        var temp_p=$("#topface li:eq(0) p").html();
-
-        for (i=0; i<countnum; i++){
-            var n=i+1;
-            $("#topface li:eq("+i+") a").attr('href',$("#topface li:eq("+n+") a").attr("href"));
-            $("#topface li:eq("+i+") img").attr('src',$("#topface li:eq("+n+") img").attr("src"));
-            $("#topface li:eq("+i+") h3").html($("#topface li:eq("+n+") h3").html());
-            $("#topface li:eq("+i+") p").html($("#topface li:eq("+n+") p").html());
-        };
-        $("#topface li:eq("+countnum+") a").attr('href',temp_href);
-        $("#topface li:eq("+countnum+") img").attr('src',temp_img);
-        $("#topface li:eq("+countnum+") h3").html(temp_h3);
-        $("#topface li:eq("+countnum+") p").html(temp_p);
-    });
-    $("#rightbtn").click(function(){
-        var temp_href=$("#topface li:eq("+countnum+") a").attr("href");
-        var temp_img=$("#topface li:eq("+countnum+") img").attr("src");
-        var temp_h3=$("#topface li:eq("+countnum+") h3").html();
-        var temp_p=$("#topface li:eq("+countnum+") p").html();
-
-        for (i=countnum; i>0; i--){
-            var n=i-1;
-            $("#topface li:eq("+i+") a").attr('href',$("#topface li:eq("+n+") a").attr("href"));
-            $("#topface li:eq("+i+") img").attr('src',$("#topface li:eq("+n+") img").attr("src"));
-            $("#topface li:eq("+i+") h3").html($("#topface li:eq("+n+") h3").html());
-            $("#topface li:eq("+i+") p").html($("#topface li:eq("+n+") p").html());
-        };
-        $("#topface li:eq(0) a").attr('href',temp_href);
-        $("#topface li:eq(0) img").attr('src',temp_img);
-        $("#topface li:eq(0) h3").html(temp_h3);
-        $("#topface li:eq(0) p").html(temp_p);
-    });
-</script>
-<div id="cattit">
-    <ul class="am-avg-sm-2 am-avg-md-2 am-avg-lg-2">
-        <li><h3><a href="#">合作专栏</a></h3></li>
-        <li  class="active-none"><h3><a href="#">个人专栏</a></h3></li>
-    </ul>
-</div>
-<hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
-<div id="cattlist" class="am-container">
-    <ul class="am-avg-sm-1 am-avg-md-3 am-avg-lg-4">
-        <li>
-            <div class="cattlist_0">
-                <div class="cattlist_1">
-                    <div class="am-g">
-
-                        <div class="am-u-sm-4 am-u-md-5 am-u-lg-5 am-vertical-align">
-                            <div class="am-vertical-align-middle">
-                                <img src="Temp-images/face1.jpg">
-                            </div>
-                        </div>
-                        <div class="am-u-sm-8 am-u-md-7 am-u-lg-7">
-
-                            <h3>山边小溪</h3>
-                            <h4>AmazeUI</h4>
-                            <p>文章<span>9</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="cattlist_2">
-                    <p>
-                        设计的空间发生快，乐十分的骄傲了开发奥斯卡的房间辣椒反馈。发奥斯卡的房间辣椒反馈。设计的空间发生快，
-                    </p>
-                </div>
-                <div class="cattlist_3">
-                    <button type="button" class="am-btn am-btn-warning">
-                        <i class="am-icon-plus"></i>
-                        橙色按钮
-                    </button>
-                </div>
-            </div>
-        </li>
-
-        <li>
-            <div class="cattlist_0">
-                <div class="cattlist_1">
-                    <div class="am-g">
-
-                        <div class="am-u-sm-4 am-u-md-5 am-u-lg-5 am-vertical-align">
-                            <div class="am-vertical-align-middle">
-                                <img src="Temp-images/face1.jpg">
-                            </div>
-                        </div>
-                        <div class="am-u-sm-8 am-u-md-7 am-u-lg-7">
-
-                            <h3>山边小溪</h3>
-                            <h4>AmazeUI</h4>
-                            <p>文章<span>9</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="cattlist_2">
-                    <p>
-                        设计的空间发生快，乐十分的骄傲了开发奥斯卡的房间辣椒反馈。发奥斯卡的房间辣椒反馈。设计的空间发生快，
-                    </p>
-                </div>
-                <div class="cattlist_3">
-                    <button type="button" class="am-btn am-btn-default">
-                        <i class="am-icon-plus"></i>
-                        灰色按钮
-                    </button>
-                </div>
-            </div>
-        </li>
-
-        <li>
-            <div class="cattlist_0">
-                <div class="cattlist_1">
-                    <div class="am-g">
-
-                        <div class="am-u-sm-4 am-u-md-5 am-u-lg-5 am-vertical-align">
-                            <div class="am-vertical-align-middle">
-                                <img src="Temp-images/face1.jpg">
-                            </div>
-                        </div>
-                        <div class="am-u-sm-8 am-u-md-7 am-u-lg-7">
-
-                            <h3>山边小溪</h3>
-                            <h4>AmazeUI</h4>
-                            <p>文章<span>9</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="cattlist_2">
-                    <p>
-                        设计的空间发生快，乐十分的骄傲了开发奥斯卡的房间辣椒反馈。发奥斯卡的房间辣椒反馈。设计的空间发生快，
-                    </p>
-                </div>
-                <div class="cattlist_3">
-                    <button type="button" class="am-btn am-btn-warning">橙色按钮</button>
-                </div>
-            </div>
-        </li>
-
-        <li>
-            <div class="cattlist_0">
-                <div class="cattlist_1">
-                    <div class="am-g">
-
-                        <div class="am-u-sm-4 am-u-md-5 am-u-lg-5 am-vertical-align">
-                            <div class="am-vertical-align-middle">
-                                <img src="Temp-images/face1.jpg">
-                            </div>
-                        </div>
-                        <div class="am-u-sm-8 am-u-md-7 am-u-lg-7">
-
-                            <h3>山边小溪</h3>
-                            <h4>AmazeUI</h4>
-                            <p>文章<span>9</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="cattlist_2">
-                    <p>
-                        设计的空间发生快，乐十分的骄傲了开发奥斯卡的房间辣椒反馈。发奥斯卡的房间辣椒反馈。设计的空间发生快，
-                    </p>
-                </div>
-                <div class="cattlist_3">
-                    <button type="button" class="am-btn am-btn-warning">橙色按钮</button>
-                </div>
-            </div>
-        </li>
-
-        <li>
-            <div class="cattlist_0">
-                <div class="cattlist_1">
-                    <div class="am-g">
-
-                        <div class="am-u-sm-4 am-u-md-5 am-u-lg-5 am-vertical-align">
-                            <div class="am-vertical-align-middle">
-                                <img src="Temp-images/face1.jpg">
-                            </div>
-                        </div>
-                        <div class="am-u-sm-8 am-u-md-7 am-u-lg-7">
-
-                            <h3>山边小溪</h3>
-                            <h4>AmazeUI</h4>
-                            <p>文章<span>9</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="cattlist_2">
-                    <p>
-                        设计的空间发生快，乐十分的骄傲了开发奥斯卡的房间辣椒反馈。发奥斯卡的房间辣椒反馈。设计的空间发生快，
-                    </p>
-                </div>
-                <div class="cattlist_3">
-                    <button type="button" class="am-btn am-btn-warning">橙色按钮</button>
-                </div>
-            </div>
-        </li>
-
-        <li>
-            <div class="cattlist_0">
-                <div class="cattlist_1">
-                    <div class="am-g">
-
-                        <div class="am-u-sm-4 am-u-md-5 am-u-lg-5 am-vertical-align">
-                            <div class="am-vertical-align-middle">
-                                <img src="Temp-images/face1.jpg">
-                            </div>
-                        </div>
-                        <div class="am-u-sm-8 am-u-md-7 am-u-lg-7">
-
-                            <h3>山边小溪</h3>
-                            <h4>AmazeUI</h4>
-                            <p>文章<span>9</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="cattlist_2">
-                    <p>
-                        设计的空间发生快，乐十分的骄傲了开发奥斯卡的房间辣椒反馈。发奥斯卡的房间辣椒反馈。设计的空间发生快，
-                    </p>
-                </div>
-                <div class="cattlist_3">
-                    <button type="button" class="am-btn am-btn-warning">橙色按钮</button>
-                </div>
-            </div>
-        </li>
-
-        <li>
-            <div class="cattlist_0">
-                <div class="cattlist_1">
-                    <div class="am-g">
-
-                        <div class="am-u-sm-4 am-u-md-5 am-u-lg-5 am-vertical-align">
-                            <div class="am-vertical-align-middle">
-                                <img src="Temp-images/face1.jpg">
-                            </div>
-                        </div>
-                        <div class="am-u-sm-8 am-u-md-7 am-u-lg-7">
-
-                            <h3>山边小溪</h3>
-                            <h4>AmazeUI</h4>
-                            <p>文章<span>9</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="cattlist_2">
-                    <p>
-                        设计的空间发生快，乐十分的骄傲了开发奥斯卡的房间辣椒反馈。发奥斯卡的房间辣椒反馈。设计的空间发生快，
-                    </p>
-                </div>
-                <div class="cattlist_3">
-                    <button type="button" class="am-btn am-btn-warning">橙色按钮</button>
-                </div>
-            </div>
-        </li>
-
-        <li>
-            <div class="cattlist_0">
-                <div class="cattlist_1">
-                    <div class="am-g">
-
-                        <div class="am-u-sm-4 am-u-md-5 am-u-lg-5 am-vertical-align">
-                            <div class="am-vertical-align-middle">
-                                <img src="Temp-images/face1.jpg">
-                            </div>
-                        </div>
-                        <div class="am-u-sm-8 am-u-md-7 am-u-lg-7">
-
-                            <h3>山边小溪</h3>
-                            <h4>AmazeUI</h4>
-                            <p>文章<span>9</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="cattlist_2">
-                    <p>
-                        设计的空间发生快，乐十分的骄傲了开发奥斯卡的房间辣椒反馈。发奥斯卡的房间辣椒反馈。设计的空间发生快，
-                    </p>
-                </div>
-                <div class="cattlist_3">
-                    <button type="button" class="am-btn am-btn-warning">橙色按钮</button>
-                </div>
-            </div>
-        </li>
-
-        <li>
-            <div class="cattlist_0">
-                <div class="cattlist_1">
-                    <div class="am-g">
-
-                        <div class="am-u-sm-4 am-u-md-5 am-u-lg-5 am-vertical-align">
-                            <div class="am-vertical-align-middle">
-                                <img src="Temp-images/face1.jpg">
-                            </div>
-                        </div>
-                        <div class="am-u-sm-8 am-u-md-7 am-u-lg-7">
-
-                            <h3>山边小溪</h3>
-                            <h4>AmazeUI</h4>
-                            <p>文章<span>9</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="cattlist_2">
-                    <p>
-                        设计的空间发生快，乐十分的骄傲了开发奥斯卡的房间辣椒反馈。发奥斯卡的房间辣椒反馈。设计的空间发生快，
-                    </p>
-                </div>
-                <div class="cattlist_3">
-                    <button type="button" class="am-btn am-btn-warning">橙色按钮</button>
-                </div>
-            </div>
-        </li>
-
-        <li>
-            <div class="cattlist_0">
-                <div class="cattlist_1">
-                    <div class="am-g">
-
-                        <div class="am-u-sm-4 am-u-md-5 am-u-lg-5 am-vertical-align">
-                            <div class="am-vertical-align-middle">
-                                <img src="Temp-images/face1.jpg">
-                            </div>
-                        </div>
-                        <div class="am-u-sm-8 am-u-md-7 am-u-lg-7">
-
-                            <h3>山边小溪</h3>
-                            <h4>AmazeUI</h4>
-                            <p>文章<span>9</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="cattlist_2">
-                    <p>
-                        设计的空间发生快，乐十分的骄傲了开发奥斯卡的房间辣椒反馈。发奥斯卡的房间辣椒反馈。设计的空间发生快，
-                    </p>
-                </div>
-                <div class="cattlist_3">
-                    <button type="button" class="am-btn am-btn-warning">橙色按钮</button>
-                </div>
-            </div>
-        </li>
-
-        <li>
-            <div class="cattlist_0">
-                <div class="cattlist_1">
-                    <div class="am-g">
-
-                        <div class="am-u-sm-4 am-u-md-5 am-u-lg-5 am-vertical-align">
-                            <div class="am-vertical-align-middle">
-                                <img src="Temp-images/face1.jpg">
-                            </div>
-                        </div>
-                        <div class="am-u-sm-8 am-u-md-7 am-u-lg-7">
-
-                            <h3>山边小溪</h3>
-                            <h4>AmazeUI</h4>
-                            <p>文章<span>9</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="cattlist_2">
-                    <p>
-                        设计的空间发生快，乐十分的骄傲了开发奥斯卡的房间辣椒反馈。发奥斯卡的房间辣椒反馈。设计的空间发生快，
-                    </p>
-                </div>
-                <div class="cattlist_3">
-                    <button type="button" class="am-btn am-btn-warning">橙色按钮</button>
-                </div>
-            </div>
-        </li>
-
-        <li>
-            <div class="cattlist_0">
-                <div class="cattlist_1">
-                    <div class="am-g">
-
-                        <div class="am-u-sm-4 am-u-md-5 am-u-lg-5 am-vertical-align">
-                            <div class="am-vertical-align-middle">
-                                <img src="Temp-images/face1.jpg">
-                            </div>
-                        </div>
-                        <div class="am-u-sm-8 am-u-md-7 am-u-lg-7">
-
-                            <h3>山边小溪</h3>
-                            <h4>AmazeUI</h4>
-                            <p>文章<span>9</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="cattlist_2">
-                    <p>
-                        设计的空间发生快，乐十分的骄傲了开发奥斯卡的房间辣椒反馈。发奥斯卡的房间辣椒反馈。设计的空间发生快，
-                    </p>
-                </div>
-                <div class="cattlist_3">
-                    <button type="button" class="am-btn am-btn-warning">橙色按钮</button>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
-
-<div class="am-container" style="margin: 100px auto">
-    <ul data-am-widget="pagination" class="am-pagination am-pagination-default am-text-center">
-
-        <li class="am-pagination-first ">
-            <a href="#" class="">第一页</a>
-        </li>
-
-        <li class="am-pagination-prev ">
-            <a href="#" class="">上一页</a>
-        </li>
-
-
-        <li class="">
-            <a href="#" class="">1</a>
-        </li>
-        <li >
-            <a href="#">2</a>
-        </li>
-        <li class="">
-            <a href="#" class="">3</a>
-        </li>
-        <li class="">
-            <a href="#" class="">4</a>
-        </li>
-        <li class="">
-            <a href="#" class="">5</a>
-        </li>
-        <li class="">
-            <a href="#" class="">6</a>
-        </li>
-        <li class="">
-            <a href="#" class="">7</a>
-        </li>
-        <li class="">
-            <a href="#" class="">8</a>
-        </li>
-        <li class="am-active">
-            <a href="#">9</a>
-        </li>
-        <li class="">
-            <a href="#" class="">10</a>
-        </li>
-        <li class="">
-            <a href="#" class="">11</a>
-        </li>
-        <li class="">
-            <a href="#" class="">12</a>
-        </li>
-        <li class="">
-            <a href="#" class="">13</a>
-        </li>
-        <li class="">
-            <a href="#" class="">14</a>
-        </li>
-        <li class="">
-            <a href="#" class="">15</a>
-        </li>
-        <li class="">
-            <a href="#" class="">16</a>
-        </li>
-
-
-        <li class="am-pagination-next ">
-            <a href="#" class="">下一页</a>
-        </li>
-
-        <li class="am-pagination-last ">
-            <a href="#" class="">最末页</a>
-        </li>
-    </ul>
-</div>
-
 
 
 
@@ -644,39 +316,7 @@
     </a>
 </div>
 
-<footer>
-    <div class="content">
-        <ul class="am-avg-sm-5 am-avg-md-5 am-avg-lg-5 am-thumbnails">
-            <li><a href="#">联系我们</a></li>
-            <li><a href="#">加入我们</a></li>
-            <li><a href="#">合作伙伴</a></li>
-            <li><a href="#">广告及服务</a></li>
-            <li><a href="#">友情链接</a></li>
-        </ul>
-        <div class="btnlogo"><img src="images/btnlogo.png"/></div>
-        <p>Amaze UI出品<br>京ICP备11008918号-3 Copyright ©2015 HTML5梦工场 助推HTML5发展</p>
-        <div class="w2div">
-            <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2
-  am-avg-md-2 am-avg-lg-2 am-gallery-overlay" data-am-gallery="{ pureview: true }" >
-                <li class="w2">
-                    <div class="am-gallery-item">
-                        <a href="Temp-images/dd.jpg">
-                            <img src="Temp-images/dd.jpg" />
-                            <h3 class="am-gallery-title">订阅号：HTML5梦工厂</h3>
-                        </a>
-                    </div>
-                </li>
-                <li   class="w2">
-                    <div class="am-gallery-item">
-                        <a href="Temp-images/dd.jpg">
-                            <img src="Temp-images/dd.jpg"/>
-                            <h3 class="am-gallery-title">服务号：HTML5头条</h3>
-                        </a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</footer>
+<!--footer-->
+<div th:replace="fragment/footer :: footer"></div>
 </body>
 </html>
