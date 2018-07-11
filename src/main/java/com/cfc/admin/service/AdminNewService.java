@@ -26,7 +26,7 @@ public class AdminNewService {
     }
 
     public static List<Map<String,Object>> listBykey(PageModel pageModel,String key){
-        return DBUtil.queryForListMap("select * from `new` where  title like ? order by ctime desc limit ?,?","%"+key+"%", pageModel.getStart(), pageModel.getCount());
+        return DBUtil.queryForListMap("select id,title,headPic,type,indexs,ctime from `new` where  title like ? order by ctime desc limit ?,?","%"+key+"%", pageModel.getStart(), pageModel.getCount());
     }
 
     public static Integer countBykey(String key){

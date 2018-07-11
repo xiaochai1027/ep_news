@@ -2,6 +2,7 @@ package com.cfc.controller;
 
 import com.cfc.service.NewService;
 import com.cfc.util.controller.BasePageController;
+import com.cfc.util.model.PageModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -32,6 +33,14 @@ public class NewPageController extends BasePageController {
 //        mv.addObject("honor",NewService.homePage());
         return mv;
     }
+
+    @RequestMapping("/category2")
+    public ModelAndView getCategory(Integer type, PageModel pageModel) {
+        ModelAndView mv = new ModelAndView("category2");
+        mv.addObject("list",NewService.listByType(type,pageModel));
+        return mv;
+    }
+
 
     @RequestMapping("/detail")
     public ModelAndView detail(Integer id) {

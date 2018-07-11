@@ -1,6 +1,7 @@
 package com.cfc.service;
 
 import com.cfc.util.basedao.DBUtil;
+import com.cfc.util.model.PageModel;
 
 import java.util.HashMap;
 import java.util.List;
@@ -28,6 +29,11 @@ public class NewService {
 
     public static Map<String, Object> detail(Integer id) {
         Map<String,Object> news = DBUtil.queryForMap("select * from `new` where id = ?", id);
+        return news;
+    }
+
+    public static List<Map<String, Object>> listByType(Integer type, PageModel pageModel) {
+        List<Map<String, Object>> news = DBUtil.queryForListMap("select id,title,ctime,headPic from `new` where type = ? order by ctime desc limit ?,?", type, pageModel.getStart(), pageModel.getCount());
         return news;
     }
 
