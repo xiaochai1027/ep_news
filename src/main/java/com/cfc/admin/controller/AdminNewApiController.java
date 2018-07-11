@@ -44,7 +44,7 @@ public class AdminNewApiController extends BaseApiController {
             data.put("id", params.get("id"));
         }
         data.put("title", params.get("title"));
-        data.put("index", params.get("index"));
+        data.put("indexs", params.get("indexs"));
         data.put("content", params.get("editorValue"));
         data.put("headPic", params.get("pic"));
         data.put("type", params.get("type"));
@@ -55,9 +55,9 @@ public class AdminNewApiController extends BaseApiController {
     }
 
     @RequestMapping("/delete")
-    @ResponseBody
     public Object list(Integer id) {
-        return genReturnJSON(AdminNewService.delete(id));
+         AdminNewService.delete(id);
+        return "admin/new/list";
     }
 
 

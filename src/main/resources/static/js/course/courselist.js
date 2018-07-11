@@ -139,7 +139,7 @@ function getCourseData(pageNum, key){
                             // + '<a href="/course/lesson/list?courseId=' + item.id+ '">编辑课次</a>/'
                             // + isPublish
                            /* + '/<a id="del" class="del" onclick="CourseList.operate(\'del\', ' + item.id + ');" href="javascript:;">删除</a>/'*/
-                            + '/<a id="give" href="/admin/new/delete?id=' + item.id+ '">删除</a>'
+                            + '/<a id="give" href="/api/admin/new/delete?id=' + item.id+ '">删除</a>'
                             + '</td>'
                             + '</tr>';
         });
