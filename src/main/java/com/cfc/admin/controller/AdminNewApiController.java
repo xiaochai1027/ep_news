@@ -46,7 +46,7 @@ public class AdminNewApiController extends BaseApiController {
         data.put("title", params.get("title"));
         data.put("indexs", params.get("indexs"));
         data.put("content", params.get("editorValue"));
-        data.put("headPic", params.get("pic"));
+        data.put("headPic", params.get("headPic"));
         data.put("type", params.get("type"));
         data.put("ctime", new Date());
         data.put("utime", new Date());
