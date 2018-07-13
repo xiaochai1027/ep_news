@@ -33,10 +33,24 @@ public class NewService {
     }
 
     public static List<Map<String, Object>> listByType(Integer type, PageModel pageModel) {
-        List<Map<String, Object>> news = DBUtil.queryForListMap("select id,title,ctime,headPic from `new` where type = ? order by ctime desc limit ?,?", type, pageModel.getStart(), pageModel.getCount());
+        List<Map<String, Object>> news = null;
+        if (type == null) {
+
+            news = DBUtil.queryForListMap("select id,title,ctime,headPic from `new` order by ctime desc limit ?,?", type, pageModel.getStart(), pageModel.getCount());
+        } else {
+
+            news = DBUtil.queryForListMap("select id,title,ctime,headPic from `new` where type = ? order by ctime desc limit ?,?", type, pageModel.getStart(), pageModel.getCount());
+        }
         return news;
     }
     public static int countByType(Integer type) {
-        return  DBUtil.queryForInt("select count(*) from `new` where type = ?", type);
+        Integer i = 0;
+        if (type == null) {
+            i = DBUtil.queryForInt("select count(*) from `new` ", type);
+        } else {
+            i = DBUtil.queryForInt("select count(*) from `new` where type = ?", type);
+
+        }
+        return  i;
     }
 }
