@@ -36,7 +36,7 @@ public class NewService {
         List<Map<String, Object>> news = null;
         if (type == null) {
 
-            news = DBUtil.queryForListMap("select id,title,ctime,headPic from `new` order by ctime desc limit ?,?", type, pageModel.getStart(), pageModel.getCount());
+            news = DBUtil.queryForListMap("select id,title,ctime,headPic from `new` order by ctime desc limit ?,?", pageModel.getStart(), pageModel.getCount());
         } else {
 
             news = DBUtil.queryForListMap("select id,title,ctime,headPic from `new` where type = ? order by ctime desc limit ?,?", type, pageModel.getStart(), pageModel.getCount());
@@ -46,7 +46,7 @@ public class NewService {
     public static int countByType(Integer type) {
         Integer i = 0;
         if (type == null) {
-            i = DBUtil.queryForInt("select count(*) from `new` ", type);
+            i = DBUtil.queryForInt("select count(*) from `new` ");
         } else {
             i = DBUtil.queryForInt("select count(*) from `new` where type = ?", type);
 
