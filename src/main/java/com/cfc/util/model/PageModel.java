@@ -61,13 +61,28 @@ public class PageModel implements Serializable {
 		if (pageInfo != null && pageInfo.length > 0) {
 			JSONObject pageJson = new JSONObject();
 			pageJson.put("pageSize", pageInfo[0]);
-
+			pageJson.put("pageNum", pageInfo[2]);
 			if (pageInfo.length > 1) {
 				pageJson.put("totalCount", pageInfo[1]);
 			}
 
 			pageJson.put("pageCount"
 					, (int) Math.ceil((float) pageInfo[1] / pageInfo[0]));
+
+			if (pageJson.getInteger("pageNum") + 1 >= pageJson.getInteger("pageCount")) {
+				pageJson.put("isLast", true);
+			} else {
+				pageJson.put("isLast", false);
+
+			}
+
+			if (pageJson.getInteger("pageNum") - 1 <= 0) {
+				pageJson.put("isFirst", true);
+			} else {
+				pageJson.put("isFirst", false);
+
+			}
+
 			mv.addObject("page",pageJson);
 
 		}

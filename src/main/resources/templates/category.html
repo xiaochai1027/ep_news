@@ -235,17 +235,20 @@
                     <ul data-am-widget="pagination" class="am-pagination am-pagination-default" style="text-align: center">
 
                         <li class="am-pagination-first ">
-                            <a href="#" class="">第一页</a>
+                            <a th:href="'/category?type='+${#httpServletRequest.getParameter('type')}+'&pageNum=1'" class="">第一页</a>
                         </li>
 
                         <li class="am-pagination-prev ">
-                            <a href="#" class="">上一页</a>
+                            <a th:if="${page.isFirst}" href="javascript:void(0);" class="">上一页</a>
+                            <a th:if="${not page.isFirst}"th:href="'/category?type='+${#httpServletRequest.getParameter('type')}+'&pageNum='+${page.pageNum-1}" class="">上一页</a>
                         </li>
 
+                        <!--<div >-->
+                            <li  th:each=" i : ${#numbers.sequence(1,page.pageCount)}" th:class="${page.pageNum == i}?'am-active':''">
+                                <a th:href="'/category?type='+${#httpServletRequest.getParameter('type')}+'&pageNum='+${i}" th:text="${i}" class=""></a>
+                            </li>
+                        <!--</div>-->
 
-                        <li class="" th:each=" i : ${#numbers.sequence(1,page.pageCount)}">
-                            <a th:href="'/catagory?type='+${#httpServletRequest.getParameter('type')}+'&pageNum='+${i}" th:text="${i}" class=""></a>
-                        </li>
                         <!--<li >-->
                             <!--<a href="#" class="">2</a>-->
                         <!--</li>-->
@@ -294,11 +297,12 @@
 
 
                         <li class="am-pagination-next ">
-                            <a href="#" class="">下一页</a>
+                            <a th:if="${page.isLast}" href="javascript:void(0);" class="">下一页</a>
+                            <a th:if="${not page.isLast}"th:href="'/category?type='+${#httpServletRequest.getParameter('type')}+'&pageNum='+${page.pageNum+1}" class="">下一页</a>
                         </li>
 
                         <li class="am-pagination-last ">
-                            <a href="#" class="">最末页</a>
+                            <a th:href="'/category?type='+${#httpServletRequest.getParameter('type')}+'&pageNum='+${page.pageCount}" class="">最末页</a>
                         </li>
                     </ul>
                 </div>

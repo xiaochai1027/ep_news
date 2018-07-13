@@ -36,7 +36,7 @@ public class NewPageController extends BasePageController {
     public ModelAndView getCategory(Integer type, PageModel pageModel) {
         ModelAndView mv = new ModelAndView("category");
         mv.addObject("list",NewService.listByType(type,pageModel));
-        PageModel.setPage(mv,pageModel.getPageSize(),NewService.countByType(type));
+        PageModel.setPage(mv, pageModel.getPageSize(), NewService.countByType(type), pageModel.getPageNum());
         return mv;
     }
 
