@@ -125,7 +125,7 @@
 
                         </li>
                         <div class="newsico am-fr">
-                            <i class="am-icon-clock-o" th:text="${u.ctime}">2016/11/11</i>
+                            <i class="am-icon-clock-o" th:text="${#dates.format(u.ctime, 'yyyy-MM-dd')}">2016/11/11</i>
                             <i class="am-icon-hand-pointer-o">12322</i>
                         </div>
                     </span>
