@@ -54,7 +54,7 @@
                 <div class="am-u-md-12 am-u-lg-6 userin">
                     <h3>山边小溪</h3>
                     <h4>AmazeUI</h4>
-                    <p>文章<span>9</span></p>
+                    <p>文章<span th:text="${page.totalCount}">9</span></p>
                     <button type="button" class="am-btn am-btn-warning am-hide-lg-only" style="margin: 0 auto; margin-top: 30px">
                         <i class="am-icon-plus"></i>
                         订阅
@@ -97,212 +97,37 @@
                             </div>
                         </li>
 
-                        <!--<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >-->
-                            <!--<div class="am-u-sm-5 am-list-thumb">-->
-                                <!--<a href="http://www.douban.com/online/11624755/">-->
-                                    <!--<img src="Temp-images/b2.jpg" alt="我最喜欢的一张画"/>-->
-                                <!--</a>-->
-                            <!--</div>-->
 
-                            <!--<div class=" am-u-sm-7 am-list-main">-->
-                                <!--<h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>-->
-
-                                <!--<div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的&#45;&#45;&#45;&#45;&#45;&#45;名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>-->
-
-                            <!--</div>-->
-                        <!--</li>-->
-
-                        <!--<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >-->
-                            <!--<div class="am-u-sm-5 am-list-thumb">-->
-                                <!--<a href="http://www.douban.com/online/11624755/">-->
-                                    <!--<img src="Temp-images/b2.jpg" alt="我最喜欢的一张画"/>-->
-                                <!--</a>-->
-                            <!--</div>-->
-
-                            <!--<div class=" am-u-sm-7 am-list-main">-->
-                                <!--<h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>-->
-
-                                <!--<div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的&#45;&#45;&#45;&#45;&#45;&#45;名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>-->
-
-                            <!--</div>-->
-                        <!--</li>-->
-
-                        <!--<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >-->
-                            <!--<div class="am-u-sm-5 am-list-thumb">-->
-                                <!--<a href="http://www.douban.com/online/11624755/">-->
-                                    <!--<img src="Temp-images/b2.jpg" alt="我最喜欢的一张画"/>-->
-                                <!--</a>-->
-                            <!--</div>-->
-
-                            <!--<div class=" am-u-sm-7 am-list-main">-->
-                                <!--<h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>-->
-
-                                <!--<div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的&#45;&#45;&#45;&#45;&#45;&#45;名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>-->
-
-                            <!--</div>-->
-                        <!--</li>-->
-
-                        <!--<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >-->
-                            <!--<div class="am-u-sm-5 am-list-thumb">-->
-                                <!--<a href="http://www.douban.com/online/11624755/">-->
-                                    <!--<img src="Temp-images/b2.jpg" alt="我最喜欢的一张画"/>-->
-                                <!--</a>-->
-                            <!--</div>-->
-
-                            <!--<div class=" am-u-sm-7 am-list-main">-->
-                                <!--<h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>-->
-
-                                <!--<div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的&#45;&#45;&#45;&#45;&#45;&#45;名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>-->
-
-                            <!--</div>-->
-                        <!--</li>-->
-
-                        <!--<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >-->
-                            <!--<div class="am-u-sm-5 am-list-thumb">-->
-                                <!--<a href="http://www.douban.com/online/11624755/">-->
-                                    <!--<img src="Temp-images/b2.jpg" alt="我最喜欢的一张画"/>-->
-                                <!--</a>-->
-                            <!--</div>-->
-
-                            <!--<div class=" am-u-sm-7 am-list-main">-->
-                                <!--<h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>-->
-
-                                <!--<div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的&#45;&#45;&#45;&#45;&#45;&#45;名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>-->
-
-                            <!--</div>-->
-                        <!--</li>-->
-
-                        <!--<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >-->
-                            <!--<div class="am-u-sm-5 am-list-thumb">-->
-                                <!--<a href="http://www.douban.com/online/11624755/">-->
-                                    <!--<img src="Temp-images/b2.jpg" alt="我最喜欢的一张画"/>-->
-                                <!--</a>-->
-                            <!--</div>-->
-
-                            <!--<div class=" am-u-sm-7 am-list-main">-->
-                                <!--<h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>-->
-
-                                <!--<div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的&#45;&#45;&#45;&#45;&#45;&#45;名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>-->
-
-                            <!--</div>-->
-                        <!--</li>-->
-
-                        <!--<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >-->
-                            <!--<div class="am-u-sm-5 am-list-thumb">-->
-                                <!--<a href="http://www.douban.com/online/11624755/">-->
-                                    <!--<img src="Temp-images/b2.jpg" alt="我最喜欢的一张画"/>-->
-                                <!--</a>-->
-                            <!--</div>-->
-
-                            <!--<div class=" am-u-sm-7 am-list-main">-->
-                                <!--<h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>-->
-
-                                <!--<div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的&#45;&#45;&#45;&#45;&#45;&#45;名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>-->
-
-                            <!--</div>-->
-                        <!--</li>-->
-                        <!--<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >-->
-                            <!--<div class="am-u-sm-5 am-list-thumb">-->
-                                <!--<a href="http://www.douban.com/online/11624755/">-->
-                                    <!--<img src="Temp-images/b2.jpg" alt="我最喜欢的一张画"/>-->
-                                <!--</a>-->
-                            <!--</div>-->
-
-                            <!--<div class=" am-u-sm-7 am-list-main">-->
-                                <!--<h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>-->
-
-                                <!--<div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的&#45;&#45;&#45;&#45;&#45;&#45;名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>-->
-
-                            <!--</div>-->
-                        <!--</li>-->
-                        <!--<li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left" >-->
-                            <!--<div class="am-u-sm-5 am-list-thumb">-->
-                                <!--<a href="http://www.douban.com/online/11624755/">-->
-                                    <!--<img src="Temp-images/b2.jpg" alt="我最喜欢的一张画"/>-->
-                                <!--</a>-->
-                            <!--</div>-->
-
-                            <!--<div class=" am-u-sm-7 am-list-main">-->
-                                <!--<h3 class="am-list-item-hd"><a href="http://www.douban.com/online/11624755/">我最喜欢的一张画</a></h3>-->
-
-                                <!--<div class="am-list-item-text">你最喜欢的艺术作品，告诉大家它们的&#45;&#45;&#45;&#45;&#45;&#45;名图画，色彩，交织，撞色，线条雕塑装置当代古代现代作品的照片美我最喜欢的画群296795413进群发画，少说多发图，</div>-->
-
-                            <!--</div>-->
-                        <!--</li>-->
 
                     </ul>
 
                     <ul data-am-widget="pagination" class="am-pagination am-pagination-default" style="text-align: center">
 
                         <li class="am-pagination-first ">
-                            <a th:href="'/category?type='+${#httpServletRequest.getParameter('type')}+'&pageNum=1'" class="">第一页</a>
+                            <a th:href="'/category?type='+${#httpServletRequest.getParameter('type') == null ?'': #httpServletRequest.getParameter('type')}+'&pageNum=1'" class="">第一页</a>
                         </li>
 
                         <li class="am-pagination-prev ">
                             <a th:if="${page.isFirst}" href="javascript:void(0);" class="">上一页</a>
-                            <a th:if="${not page.isFirst}"th:href="'/category?type='+${#httpServletRequest.getParameter('type')}+'&pageNum='+${page.pageNum-1}" class="">上一页</a>
+                            <a th:if="${not page.isFirst}"th:href="'/category?type='+${#httpServletRequest.getParameter('type') == null ?'': #httpServletRequest.getParameter('type')}+'&pageNum='+${page.pageNum-1}" class="">上一页</a>
                         </li>
 
                         <!--<div >-->
                             <li  th:each=" i : ${#numbers.sequence(1,page.pageCount)}" th:class="${page.pageNum == i}?'am-active':''">
-                                <a th:href="'/category?type='+${#httpServletRequest.getParameter('type')}+'&pageNum='+${i}" th:text="${i}" class=""></a>
+                                <a th:href="'/category?type='+${#httpServletRequest.getParameter('type') == null ?'': #httpServletRequest.getParameter('type')}+'&pageNum='+${i}" th:text="${i}" class=""></a>
                             </li>
                         <!--</div>-->
 
-                        <!--<li >-->
-                            <!--<a href="#" class="">2</a>-->
-                        <!--</li>-->
-                        <!--<li class="">-->
-                            <!--<a href="#" class="">3</a>-->
-                        <!--</li>-->
-                        <!--<li class="">-->
-                            <!--<a href="#" class="">4</a>-->
-                        <!--</li>-->
-                        <!--<li class="">-->
-                            <!--<a href="#" class="">5</a>-->
-                        <!--</li>-->
-                        <!--<li class="">-->
-                            <!--<a href="#" class="">6</a>-->
-                        <!--</li>-->
-                        <!--<li class="">-->
-                            <!--<a href="#" class="">7</a>-->
-                        <!--</li>-->
-                        <!--<li class="">-->
-                            <!--<a href="#" class="">8</a>-->
-                        <!--</li>-->
-                        <!--<li class="am-active">-->
-                            <!--<a href="#">9</a>-->
-                        <!--</li>-->
-                        <!--<li class="">-->
-                            <!--<a href="#" class="">10</a>-->
-                        <!--</li>-->
-                        <!--<li class="">-->
-                            <!--<a href="#" class="">11</a>-->
-                        <!--</li>-->
-                        <!--<li class="">-->
-                            <!--<a href="#" class="">12</a>-->
-                        <!--</li>-->
-                        <!--<li class="">-->
-                            <!--<a href="#" class="">13</a>-->
-                        <!--</li>-->
-                        <!--<li class="">-->
-                            <!--<a href="#" class="">14</a>-->
-                        <!--</li>-->
-                        <!--<li class="">-->
-                            <!--<a href="#" class="">15</a>-->
-                        <!--</li>-->
-                        <!--<li class="">-->
-                            <!--<a href="#" class="">16</a>-->
-                        <!--</li>-->
+
 
 
                         <li class="am-pagination-next ">
                             <a th:if="${page.isLast}" href="javascript:void(0);" class="">下一页</a>
-                            <a th:if="${not page.isLast}"th:href="'/category?type='+${#httpServletRequest.getParameter('type')}+'&pageNum='+${page.pageNum+1}" class="">下一页</a>
+                            <a th:if="${not page.isLast}"th:href="'/category?type='+${#httpServletRequest.getParameter('type') == null ?'': #httpServletRequest.getParameter('type')}+'&pageNum='+${page.pageNum+1}" class="">下一页</a>
                         </li>
 
                         <li class="am-pagination-last ">
-                            <a th:href="'/category?type='+${#httpServletRequest.getParameter('type')}+'&pageNum='+${page.pageCount}" class="">最末页</a>
+                            <a th:href="'/category?type='+${#httpServletRequest.getParameter('type') == null ?'': #httpServletRequest.getParameter('type')}+'&pageNum='+${page.pageCount}" class="">最末页</a>
                         </li>
                     </ul>
                 </div>
