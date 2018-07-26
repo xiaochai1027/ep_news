@@ -17,7 +17,7 @@ public class NewService {
         Map<String, List<Map<String, Object>>> map = new HashMap<>();
         //1荣誉榜 2热门资讯 3个人专栏 4合作专栏
         List<Map<String, Object>> honor = DBUtil.queryForListMap("select id,title,headPic,type,indexs,ctime from `new` where type = 1 order by indexs desc limit 0,6");
-        List<Map<String, Object>> news = DBUtil.queryForListMap("select id,title,headPic,type,indexs,ctime from `new` where type = 2 order by indexs desc limit 0,10");
+        List<Map<String, Object>> news = DBUtil.queryForListMap("select id,title,headPic,type,indexs,ctime from `new` where type = 2 order by indexs desc limit 0,12");
         List<Map<String, Object>> single = DBUtil.queryForListMap("select id,title,headPic,type,indexs,ctime from `new` where type = 3 order by indexs desc limit 0,4");
         List<Map<String, Object>> cp = DBUtil.queryForListMap("select id,title,headPic,type,indexs,ctime from `new` where type = 4 order by indexs desc limit 0,4");
         map.put("honor", honor);
