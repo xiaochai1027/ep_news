@@ -16,4 +16,9 @@ public class StaticController {
 
         return "redirect:/static/robots.txt";
     }
+
+    @RequestMapping("/baidu_verify_VfcEcHZQKR.html")
+    public ModelAndView getBaiduHtml(){
+        return new ModelAndView("baidu_verify_VfcEcHZQKR");
+    }
 }
