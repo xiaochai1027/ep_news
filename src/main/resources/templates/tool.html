@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>常用链接</title>
+		<style>
+			#nav > li{ float:left; margin-left:20px; list-style-type:none;}
+			.link_list{
+				margin-left:0;
+				margin-top: 10px;
+				padding-left: 0; 
+				list-style-type:none;
+			}
+			a{
+				text-decoration: none;
+				margin-top:10px;
+				font:normal 20px Cursive;
+			}
+			a.nav_link:link{
+				color: blue;
+			}
+			a.nav_link:hover{
+				color: red;
+			}
+			a.nav_link:active{
+				color:black;
+			}
+			a.nav_link:visited{
+				color: blue;
+			}
+		</style>
+		
+​		
+	</head>
+	<body>
+		
+		<script>
+			function init_page(){
+				var pages = {"API":[
+								{"name":"JDK8","link":"https://docs.oracle.com/javase/8/docs/api/","target":"_blank"},
+								{"name":"JDK1-7英文","link":"http://tool.oschina.net/apidocs/apidoc?api=jdk_7u4","target":"_blank"},
+								{"name":"RRD4j","link":"https://docs.openhab.org/addons/persistence/rrd4j/readme.html","target":"_blank"},
+								{"name":"w3school","link":"http://www.w3school.com.cn/","target":"_blank"},
+								{"name":"BootstrapV3","link":"http://v3.bootcss.com/","target":"_blank"},
+								{"name":"Echarts","link":"http://echarts.baidu.com/option.html","target":"_blank"},
+								{"name":"SVG Editor","link":"http://editor.method.ac/","target":"_blank"},
+								{"name":"Lambda","link":"http://www.java2s.com/Tutorials/Java/Java_Lambda/0040__Java_Lambda_Type_Inference.htm","target":"_blank"}
+							],
+							"考虫网":[
+								{"name":"gitlab","link":"http://gitlab.xuanke.com","target":"_blank"},
+								{"name":"禅道","link":"http://zt.xuanke.com","target":"_blank"},
+								{"name":"需求文档","link":"http://svn.xuanke.com/svn/xuankerepo/trunk/pm/","target":"_blank"},
+								{"name":"xWiki", "link":"http://xwiki.xuanke.com", "target":"_blank"},
+								{"name":"gitWiki","link":"http://gitlab.xuanke.com/share/wiki","target":"_blank"},
+								{"name":"流程规范", "link":"http://svn.xuanke.com/svn/xuanke/repo/test/","target":"_blank"},
+								{"name":"jenkins", "link":"http://jenkins.xuanke.com/jenkins/"},
+								{"name":"kibana", "link":"http://kibana.xuanke.com/app/kibana#/home?_g=()","target":"_blank"},
+								{"name":"devops", "link":"http://ops.xuanke.com/screen/972","target":"_blank"}
+							],
+							"hema":[{"name":"admin","link":"http://hema.xuanke.com/admin/course/list","target":"_blank"}
+							], 
+							"Test1":[
+								{"name":"jekins","link":"http://test1jk.xuanke.com/","target":"_blank"},
+								{"name":"考虫web","link":"http://test1kaochong.xuanke.com/","target":"_blank"},
+								{"name":"考虫admin","link":"http://test1admin.xuanke.com/","target":"_blank"},
+								{"name":"Vip_web","link":"http://test1vip.xuanke.com/","target":"_blank"},
+								{"name":"学管师","link":"https://test1vipadmin.kaochong.com/","target":"_blank"},
+								{"name":"考虫mobile","link":"https://test1mobile.kaochong.com/","target":"_blank"},
+								{"name":"Vip_mobile","link":"https://test1vipmobile.kaochong.com/","target":"_blank"}
+							],
+							"kaochong":[
+								{"name":"测试", "link":"http://kaochong.xuanke.com", "target":"_blank"},
+								{"name":"沙箱", "link":"http://kaochong.sandbox.xuanke.com", "target":"_blank"},
+								{"name":"正式", "link":"http://kaochong.com", "target":"_blank"},
+								{"name":"Admin", "link":"http://admin.kaochong.xuanke.com/static/page/login.html", "target":"_blank"}
+							],
+							"vip":[
+								{"name":"测试", "link":"http://vip.kaochong.xuanke.com", "target":"_blank"},    
+								{"name":"正式", "link":"http://vip.kaochong.com", "target":"_blank"},
+								{"name":"vip_admin", "link":"https://adminviptest.kaochong.com/static/page/login.html", "target":"_blank"}
+								
+							],
+							"kaochong_mobile":[
+								{"name":"测试", "link":"https://mobiletest.kaochong.com", "target":"_blank"},
+								{"name":"沙箱", "link":"https://mobilesandbox.kaochong.com", "target":"_blank"},
+								{"name":"正式", "link":"https://mobile.kaochong.com", "target":"_blank"}
+							],
+							"vip_mobile":[
+								{"name":"测试", "link":"https://mobileviptest.kaochong.com", "target":"_blank"},
+								{"name":"沙箱", "link":"http://mobilevipsandbox.kaochong.com/", "target":"_blank"},
+								{"name":"正式", "link":"https://mobilevip.kaochong.com", "target":"_blank"}
+							],
+							"kaochong_admin":[
+								{"name":"测试", "link":"http://admin.kaochong.xuanke.com", "target":"_blank"},
+								{"name":"沙箱", "link":"http://admin.kaochong.sandbox.xuanke.com", "target":"_blank"},
+								{"name":"正式", "link":"http://admin.kaochong.com", "target":"_blank"}
+	                        ],
+							"News":[
+								{"name":"CSDN","link":"http://www.csdn.net/","target":"_blank"},
+								{"name":"DZone","link":"https://dzone.com/java-jdk-development-tutorials-tools-news","target":"_blank"},
+								{"name":"DI Management","link":"https://www.di-mgt.com.au/index.html","target":"_blank"},
+								{"name":"并发编程网","link":"http://ifeve.com/","target":"_blank"},
+								{"name":"Wireshark学习","link":"https://community.emc.com/message/818739#818739","target":"_blank"},
+								{"name":"DifferenceBetween","link":"http://www.differencebetween.net","target":"_blank"},
+								{"name":"TLCL","link":"http://billie66.github.io/TLCL/book/index.html","target":"_blank"}
+							],
+							"JAVA":[
+								{"name":"Security","link":"https://docs.oracle.com/javase/10/security/java-security-overview1.htm#JSSEC-GUID-2EF91196-D468-4D0F-8FDC-DA2BEA165D10","target":"_blank"},
+								{"name":"CodeGuide","link":"http://www.oracle.com/technetwork/java/seccodeguide-139067.html","target":"_blank"},
+								{"name":"GC","link":"https://docs.oracle.com/javase/10/gctuning/introduction-garbage-collection-tuning.htm#JSGCT-GUID-326EB4CF-8C8C-4267-8355-21AB04F0D304","target":"_blank"},
+								{"name":"Index","link":"https://docs.oracle.com/javase/10/","target":"_blank"}
+							],
+							"SearchTool":[
+								{"name":"Google","link":"https://www.google.com/","target":"_blank"},
+								{"name":"Bing","link":"http://cn.bing.com","target":"_blank"},
+								{"name":"Baidu","link":"https://www.baidu.com","target":"_blank"}
+							],
+							target_def :'_blank'
+						};
+				var area = document.createElement("ul");
+				area.id = "nav";
+				for(var key in pages){
+					var links = pages[key];
+					if(!(typeof links === 'object')){
+						continue;
+					}
+					var links_dom = document.createElement("ul");
+					links_dom.setAttribute("class","link_list");
+					var series = document.createElement("li");
+					var node = document.createElement("b");
+					var text = document.createTextNode(key);
+					node.appendChild(text);
+					series.appendChild(node);
+					for(var i = 0; i < links.length; i++){
+						var link = links[i];
+						var href = link["link"];
+						if(typeof href === 'undefined' || href.length < 1){
+							continue;
+						}
+						var name = link["name"];
+						if(typeof name === 'undefined' || name.length < 1){
+							name = href;
+						}
+						var target = link["target"];
+						if(typeof target === 'undefined' || target.length < 1){
+							target = pages['href_def'];
+						}
+						var link_dom = document.createElement("li");
+						var a_dom = document.createElement("a");
+						a_dom.setAttribute("style",".nav_link");
+						a_dom.setAttribute("href", href);
+						a_dom.setAttribute("target", target);
+						var a_text = document.createTextNode(name);
+						a_dom.appendChild(a_text);
+						link_dom.appendChild(a_dom);
+						links_dom.appendChild(link_dom);
+						series.appendChild(links_dom);
+					}
+					area.appendChild(series);
+				}
+				document.body.appendChild(area);
+			}
+			init_page();
+		</script>
+	</body>
+</html>
